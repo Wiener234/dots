@@ -1,0 +1,53 @@
+#! /bin/sh
+
+git_dir=$(pwd)
+conf_dir=/home/$USER/.config
+
+mv $conf_dir/dunst /home/$USER/old_configs/
+ln -s $git_dir/dunst $conf_dir 
+echo 'dunst done...'
+
+mv $conf_dir/flashfocus /home/$USER/old_configs
+ln -s $git_dir/flashfocus $conf_dir
+echo 'flashfocus done...'
+
+mv $conf_dir/i3 /home/$USER/old_configs
+ln -s $git_dir/i3 $conf_dir
+echo 'i3 done...'
+
+mv $conf_dir/kitty /home/$USER/old_configs
+ln -s $git_dir/kitty $conf_dir
+echo 'kitty done...'
+
+mv $conf_dir/nvim /home/$USER/old_configs
+ln -s $git_dir/nvim $conf_dir
+echo 'nvim done...'
+
+mv $conf_dir/picom /home/$USER/old_configs
+ln -s $git_dir/picom $conf_dir
+echo 'picom done...'
+
+mv $conf_dir/polybar /home/$USER/old_configs
+ln -s $git_dir/polybar $conf_dir
+echo 'polybar done...'
+
+mv $conf_dir/rofi /home/$USER/old_configs
+ln -s $git_dir/rofi /home/$USER/old_configs
+echo 'rofi done...'
+
+mv $conf_dir/spicetify /home/$USER/old_configs
+ln -s $git_dir/spicetify $conf_dir
+echo 'spicetify done...'
+
+mv /home/$USER/.bash_aliases /home/$USER/old_configs
+ln -s $git_dir/.bash_aliases /home/$USER
+echo 'bash_aliases done...'
+
+mv /home/$USER/.bashrc /home/$USER/old_configs
+ln -s $git_dir/.bashrc /home/$USER
+echo 'bashrc done...'
+
+mv /home/$USER/fehbg /home/$USER/old_configs
+ln -s $git_dir/fehbg /home/$USER
+echo 'fehbg done...'
+
