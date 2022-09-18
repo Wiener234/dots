@@ -273,7 +273,7 @@ bindsym $mod+m exec /usr/bin/spotify
 bindsym $mod+shift+h exec --no-startup-id $i3lockwall && sleep 1 && systemctl suspend, mode "default"
 bindsym $mod+p move workspace to output right
 bindsym $mod+shift+s exec flameshot gui
-bindsym $mod+t exec todour
+bindsym $mod+t exec thunderbird
 bindsym $mod+c exec pavucontrol
 bindsym $mod+shift+v exec code
 bindsym $mod+n exec --no-startup-id flash_window

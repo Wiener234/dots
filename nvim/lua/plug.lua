@@ -24,6 +24,6 @@ return require('packer').startup(function(use)
 --  use {'akinsho/bufferline.nvim', 
 --        tag = "v2.*",
 --        requires = 'kyazdani42/nvim-web-devicons'}     
---  use {'lervag/vimtex'}
+  use {'lervag/vimtex'}
 end)
 -- config = {package_root = vim.fn.stdpath('config') .. '/site/pack'})
