@@ -44,7 +44,7 @@ ln -s $git_dir/.bash_aliases /home/$USER
 echo 'bash_aliases done...'
 
 mv /home/$USER/.bashrc /home/$USER/old_configs
-ln -s $git_dir/.bashrc /home/$USER
+ln -s $git_dir/bashrc_lap /home/$USER/.bashrc
 echo 'bashrc done...'
 
 mv /home/$USER/fehbg /home/$USER/old_configs

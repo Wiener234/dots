@@ -99,7 +99,8 @@ modules-right = spotify border1 alsa border2 date border3 time border9
 
 
 [bar/momiji-left]
-monitor = DVI-D-0
+;monitor = DVI-D-0
+monitor = DP-0
 ;monitor = DVI-D-1
 override-redirect = false
 bottom = false
