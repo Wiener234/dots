@@ -51,3 +51,6 @@ mv /home/$USER/fehbg /home/$USER/old_configs
 ln -s $git_dir/fehbg /home/$USER
 echo 'fehbg done...'
 
+mv $conf_dir/starship.toml /home/$USER/old_configs
+ln -s $git_dir/starship.toml $conf_dir
+echo 'starship done...'
