@@ -34,3 +34,8 @@ map('n', '<S-l>', [[:BufferLineCycleNext<CR>]], {noremap=true, silent=true})
 -- Bufferline prev
 map('n', '<S-h>', [[:BufferLineCyclePrev<CR>]], {noremap=true, silent=true})
 
+-- FloaTerm configuration
+map('n', "<leader>ft", ":FloatermNew! --name=myfloat --height=0.8 --width=0.7 --autoclose=2 bash <CR> ", {})
+map('n', "t", ":FloatermToggle myfloat<CR>", {})
+map('t', "<Esc>", "<C-\\><C-n>:q<CR>", {})
+
