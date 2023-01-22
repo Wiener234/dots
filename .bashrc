@@ -112,8 +112,9 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH="$PATH:$HOME/.spicetify"
+export PATH="$PATH:$HOME/.local/bin/"
 
+export GDK_SCALE=1.75
+. "$HOME/.cargo/env"
 
-DEBEMAIL="wiemernils@gmail.com"
-DEBFULLNAME="Nils Wiemer"
-export DEBEMAIL DEBFULLNAME
+eval "$(starship init bash)"
