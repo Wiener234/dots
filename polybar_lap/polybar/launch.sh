@@ -7,7 +7,7 @@ killall -q polybar
 
 # Launch Polybar, using default config location ~/.config/polybar/config
 polybar momiji 2>&1 | tee -a /tmp/polybar.log & disown
-polybar momiji-left 2>&1 | tee -a /tmp/polybar.log & disown
-# polybar momiji-left-left 2>&1 | tee -a /tmp/polybar.log & disown
+#polybar momiji-left 2>&1 | tee -a /tmp/polybar.log & disown
+#polybar momiji-left-left 2>&1 | tee -a /tmp/polybar.log & disown
 
 echo "Polybar launched..."

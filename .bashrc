@@ -112,7 +112,9 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH="$PATH:$HOME/.spicetify"
+export PATH="$PATH:$HOME/.local/bin/"
 
+. "$HOME/.cargo/env"
 
 DEBEMAIL="wiemernils@gmail.com"
 DEBFULLNAME="Nils Wiemer"
@@ -139,4 +141,7 @@ pomodoro () {
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 alias te="pomodoro 'test'"
-. "$HOME/.cargo/env"
+
+
+eval "$(starship init bash)"
+
