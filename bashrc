@@ -125,7 +125,7 @@ export DEBEMAIL DEBFULLNAME
 declare -A pomo_options
 pomo_options["work"]="45"
 pomo_options["break"]="10"
-pomo_options["test"]="0.1"
+pomo_options["test"]="0.75"
 
 
 pomodoro () {
@@ -144,3 +144,7 @@ alias te="pomodoro 'test'"
 
 
 eval "$(starship init bash)"
+
+
+## packaging
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"

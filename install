@@ -32,7 +32,7 @@ ln -s $git_dir/polybar $conf_dir
 echo 'polybar done...'
 
 mv $conf_dir/rofi /home/$USER/old_configs
-ln -s $git_dir/rofi /home/$USER/old_configs
+ln -s $git_dir/rofi $conf_dir
 echo 'rofi done...'
 
 mv $conf_dir/spicetify /home/$USER/old_configs

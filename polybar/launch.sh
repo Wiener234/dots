@@ -5,9 +5,14 @@ killall -q polybar
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
 
-# Launch Polybar, using default config location ~/.config/polybar/config
-polybar momiji 2>&1 | tee -a /tmp/polybar.log & disown
-polybar momiji-left 2>&1 | tee -a /tmp/polybar.log & disown
-# polybar momiji-left-left 2>&1 | tee -a /tmp/polybar.log & disown
 
+#polybar placeholder -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
+polybar main -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
+polybar workspaces -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
+polybar tray -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
+
+
+#polybar placeholder2 -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
+polybar workspaces2 -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
+polybar tray2 -c ~/.config/polybar/wiener016.ini | tee -a /tmp/polybar.log & disown
 echo "Polybar launched..."
