@@ -35,91 +35,91 @@ require('plugins.config.vimtex')
 
 vim.opt.termguicolors = true
 
-require('todotxt-nvim').setup({
-
-  todo_file = "/home/nils/Nextcloud/Notizen/ToDo.todo.txt",
-  sidebar = {
-    width = 40,
-    position = "right", -- default: "right"
-  },
-  capture = {
-    prompt = "> ",
-    -- percentage is percentage of width of the whole editor
-    -- integer is number of columns
-    width = "75%",
-    position = "50%",
-    -- styled after https://swiftodoapp.com/todotxt-syntax/priority/
-    -- with this, if you include any of the below keywords it will
-    -- automatically use the associated priority and remove that
-    -- keyword from the final task.
-    alternative_priority = {
-      a = "now",
-      b = "next",
-      c = "today",
-      d = "this week",
-      e = "next week",
-    },
-  },
-  -- highlights used in both capture prompt and tasks sidebar
-  -- each highlight type can be a table with 'fg', 'bg' and 'style'
-  -- options or a string referencing an existing highlight group.
-  -- highlights = {
-  --   project = "identifier",
-  -- }
-  highlights = {
-    project = {
-      fg = "magenta",
-      bg = "none",
-      style = "none",
-    },
-    context = {
-      fg = "cyan",
-      bg = "none",
-      style = "none",
-    },
-    date = {
-      fg = "none",
-      bg = "none",
-      style = "underline",
-    },
-    done_task = {
-      fg = "gray",
-      bg = "none",
-      style = "none",
-    },
-    priorities = {
-      a = {
-        fg = "red",
-        bg = "none",
-        style = "bold",
-      },
-      b = {
-        fg = "magenta",
-        bg = "none",
-        style = "bold",
-      },
-      c = {
-        fg = "yellow",
-        bg = "none",
-        style = "bold",
-      },
-      d = {
-        fg = "cyan",
-        bg = "none",
-        style = "bold",
-      },
-    },
-  },
-  -- keymap used in sidebar split
-  keymap = {
-    quit = "q",
-    toggle_metadata = "m",
-    delete_task = "dd",
-    complete_task = "<space>",
-    edit_task = "ee",
-  },
-
-})
+--require('todotxt-nvim').setup({
+--
+--  todo_file = "/home/nils/Nextcloud/Notizen/ToDo.todo.txt",
+--  sidebar = {
+--    width = 40,
+--    position = "right", -- default: "right"
+--  },
+--  capture = {
+--    prompt = "> ",
+--    -- percentage is percentage of width of the whole editor
+--    -- integer is number of columns
+--    width = "75%",
+--    position = "50%",
+--    -- styled after https://swiftodoapp.com/todotxt-syntax/priority/
+--    -- with this, if you include any of the below keywords it will
+--    -- automatically use the associated priority and remove that
+--    -- keyword from the final task.
+--    alternative_priority = {
+--      a = "now",
+--      b = "next",
+--      c = "today",
+--      d = "this week",
+--      e = "next week",
+--    },
+--  },
+--  -- highlights used in both capture prompt and tasks sidebar
+--  -- each highlight type can be a table with 'fg', 'bg' and 'style'
+--  -- options or a string referencing an existing highlight group.
+--  -- highlights = {
+--  --   project = "identifier",
+--  -- }
+--  highlights = {
+--    project = {
+--      fg = "magenta",
+--      bg = "none",
+--      style = "none",
+--    },
+--    context = {
+--      fg = "cyan",
+--      bg = "none",
+--      style = "none",
+--    },
+--    date = {
+--      fg = "none",
+--      bg = "none",
+--      style = "underline",
+--    },
+--    done_task = {
+--      fg = "gray",
+--      bg = "none",
+--      style = "none",
+--    },
+--    priorities = {
+--      a = {
+--        fg = "red",
+--        bg = "none",
+--        style = "bold",
+--      },
+--      b = {
+--        fg = "magenta",
+--        bg = "none",
+--        style = "bold",
+--      },
+--      c = {
+--        fg = "yellow",
+--        bg = "none",
+--        style = "bold",
+--      },
+--      d = {
+--        fg = "cyan",
+--        bg = "none",
+--        style = "bold",
+--      },
+--    },
+--  },
+--  -- keymap used in sidebar split
+--  keymap = {
+--    quit = "q",
+--    toggle_metadata = "m",
+--    delete_task = "dd",
+--    complete_task = "<space>",
+--    edit_task = "ee",
+--  },
+--
+--})
 
 -- empty setup using defaults: add your own options
 --require'nvim-tree'.setup {

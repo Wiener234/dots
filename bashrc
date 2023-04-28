@@ -111,14 +111,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH="$PATH:$HOME/.spicetify"
 export PATH="$PATH:$HOME/.local/bin/"
 
-. "$HOME/.cargo/env"
-
-DEBEMAIL="wiemernils@gmail.com"
-DEBFULLNAME="Nils Wiemer"
-export DEBEMAIL DEBFULLNAME
 
 #timer for stuff
 
@@ -146,6 +140,13 @@ alias te="pomodoro 'test'"
 eval "$(starship init bash)"
 
 
-## packaging
-alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh
+alias vim="$HOME/Downloads/nvim.appimage"
+export PATH="$PATH:$HOME/bin/"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
