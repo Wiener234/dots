@@ -142,7 +142,7 @@ eval "$(starship init bash)"
 
 #source /usr/share/nvm/init-nvm.sh
 alias vim="$HOME/Downloads/nvim.appimage"
-export PATH="$PATH:$HOME/bin/"
+export PATH="$PATH:/home/wiemer/bin/"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -150,3 +150,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
+
