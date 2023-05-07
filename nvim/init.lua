@@ -1,6 +1,7 @@
 --[[ init.lua ]]
 
 local cmd = vim.api.nvim_command
+local api = vim.api
 
 -- LEADER
 -- These keybindings need to be defined before the first /
@@ -129,6 +130,32 @@ require('todotxt-nvim').setup({
 -- setup with all defaults
 -- each of these are documented in `:help nvim-tree.option_name`
 -- nested options are documented by accessing them with `.` (eg: `:help nvim-tree.view.mappings.list`).
+
+--
+
+local function open_nvim_tree(data)
+
+  -- buffer is a [No Name]
+  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+  -- buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
+
+  if not no_name and not directory then
+    return
+  end
+
+  -- change to the directory
+  if directory then
+    vim.cmd.cd(data.file)
+  end
+
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+api.nvim_create_autocmd( {"VimEnter"} ,{callback = open_nvim_tree})
+
 require'nvim-tree'.setup { -- begin_default_opts
   auto_reload_on_write = true,
   disable_netrw = false,
@@ -136,8 +163,6 @@ require'nvim-tree'.setup { -- begin_default_opts
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
-  open_on_setup = true,
-  open_on_setup_file = true,
   open_on_tab = false,
   sort_by = "name",
   update_cwd = false,
@@ -268,24 +293,77 @@ require("presence"):setup({
 })
 
 require("mason").setup()
+require("mason-lspconfig").setup()
+
+require("mason-lspconfig").setup_handlers{
+    function (server_name)
+        require("lspconfig")[server_name].setup{}
+    end,
+    ["rust_analyzer"] = function()
+        local rt = require("rust-tools")
+        rt.setup{
+            server = {
+                on_attach = function(_, bufnr)
+                -- Hover actions
+                vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+                -- Code action groups
+                vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+                end,
+            },
+        }
+    end,
+}
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
+
 
 --Python
-require'lspconfig'.jedi_language_server.setup{}
+--require'lspconfig'.jedi_language_server.setup{}
+
 
 --Rust
 
-local rt = require("rust-tools")
+--local rt = require("rust-tools")
 
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})
+--rt.setup({
+--  server = {
+--    on_attach = function(_, bufnr)
+--      -- Hover actions
+--      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--      -- Code action groups
+--      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--    end,
+--  },
+--})
 
 -- LSP Diagnostics Options Setup 
 local sign = function(opts)
