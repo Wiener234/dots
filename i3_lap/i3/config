@@ -286,6 +286,7 @@ exec_always --no-startup-id flashfocus
 exec_always --no-startup-id timeshift --check
 exec_always powertop --auto-tune
 
+#exec_always xrandr --output eDP1 --scale '1.14x1.14'
 
 #exec_always xrandr --output DVI-D-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --mode 1920x1080 --pos 3840x0 --rotate normal
 

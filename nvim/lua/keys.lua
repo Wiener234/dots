@@ -14,13 +14,13 @@ map('n', 'n', [[:NvimTreeToggle<CR>]], {})
 map('n', 'm', [[:below 10sp term://bash<CR>]], {})
 
 -- move between windows
-map('n', 'ö', '<C-w>', {})
+map('n', ';', '<C-w>', {})
 
 -- exit terminal insert mode
 map('t', 'jk', [[<C-\><C-n>]], {})
 
 -- Toggle Colorizer
-map('n', 'ä', [[:ColorizerToggle<CR>]], {})
+map('n', '\\', [[:ColorizerToggle<CR>]], {})
 
 -- add ToDo
 map('n', 'ta', [[:ToDoTxtCapture<CR>]], {})
