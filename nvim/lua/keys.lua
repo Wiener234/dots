@@ -1,41 +1,45 @@
--- [[ keys.lua ]
+-- [[ keys.lua ]]
+
+local vim = vim
 local map = vim.api.nvim_set_keymap
 
--- remap the key used to leave insert mode
-map('i', 'jk', '<Esc>', {})
+map('i', 'jk', '<Esc>', {})				-- exit insert mode
+map('v', 'jk', '<Esc>', {})				-- exit visual mode
+map('n', ';', '<C-w>', {})				-- move between windows
+map('t', 'jk', [[<C-\><C-n>]], {})		-- exit terminal mode
+map('n', 'f', ':FloatermToggle<CR>', {})-- open floaterm
+map('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
+map('n', 'N', ':Files ', {})			-- open fzf Files [user input]
+map('n', '\\', ':Buffers<CR>', {})
 
--- remap the key used to leace visual mode
-map('v', 'jk', '<Esc>', {})
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
--- Toggle nvim-tree
-map('n', 'n', [[:NvimTreeToggle<CR>]], {})
-
--- open terminal horizontal
-map('n', 'm', [[:below 10sp term://bash<CR>]], {})
-
--- move between windows
-map('n', ';', '<C-w>', {})
-
--- exit terminal insert mode
-map('t', 'jk', [[<C-\><C-n>]], {})
-
--- Toggle Colorizer
-map('n', '\\', [[:ColorizerToggle<CR>]], {})
-
--- add ToDo
-map('n', 'ta', [[:ToDoTxtCapture<CR>]], {})
-
--- Toggle ToDo
-map('n', 'ts', [[:ToDoTxtTasksToggle<CR>]], {})
-
--- Bufferline next
-map('n', '<S-l>', [[:BufferLineCycleNext<CR>]], {noremap=true, silent=true})
-
--- Bufferline prev
-map('n', '<S-h>', [[:BufferLineCyclePrev<CR>]], {noremap=true, silent=true})
-
--- FloaTerm configuration
---map('n', "<leader>ft", ":FloatermNew! --name=myfloat --height=0.8 --width=0.7 --autoclose=2 bash <CR> ", {})
-map('n', "f", ":FloatermToggle<CR>", {})
---map('t', "<Esc>", "<C-\\><C-n>:q<CR>", {})
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
 
