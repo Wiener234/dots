@@ -151,4 +151,9 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . "$HOME/.cargo/env"
+#xkbcomp -w0 -I$HOME/.xkb ~/.xkb/keymap/xkbcustom $DISPLAY
+export PATH="$PATH:$HOME/github/apache-maven-3.9.2/bin/"
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

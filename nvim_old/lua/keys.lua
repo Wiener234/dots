@@ -14,13 +14,13 @@ map('n', 'n', [[:NvimTreeToggle<CR>]], {})
 map('n', 'm', [[:below 10sp term://bash<CR>]], {})
 
 -- move between windows
-map('n', 'ö', '<C-w>', {})
+map('n', ';', '<C-w>', {})
 
 -- exit terminal insert mode
 map('t', 'jk', [[<C-\><C-n>]], {})
 
 -- Toggle Colorizer
-map('n', 'ä', [[:ColorizerToggle<CR>]], {})
+map('n', '\'', [[:ColorizerToggle<CR>]], {})
 
 -- add ToDo
 map('n', 'ta', [[:ToDoTxtCapture<CR>]], {})
@@ -36,6 +36,6 @@ map('n', '<S-h>', [[:BufferLineCyclePrev<CR>]], {noremap=true, silent=true})
 
 -- FloaTerm configuration
 --map('n', "<leader>ft", ":FloatermNew! --name=myfloat --height=0.8 --width=0.7 --autoclose=2 bash <CR> ", {})
-map('n', "t", ":FloatermToggle<CR>", {})
+map('n', "f", ":FloatermToggle<CR>", {})
 --map('t', "<Esc>", "<C-\\><C-n>:q<CR>", {})
 
