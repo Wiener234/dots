@@ -12,4 +12,4 @@ require('plugins')
 require('opts')
 require('keys')
 require('lsp')
-
+require('snippets')

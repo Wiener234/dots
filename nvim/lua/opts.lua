@@ -14,10 +14,10 @@ cmd('set foldlevel=9')
 opt.ignorecase = true		-- bool: Ignore case in search patterns
 opt.smartcase = true		-- bool: Override ingnorecase if search contains capitals
 opt.incsearch = true		-- bool: Use incremental search
-opt.hlsearch = true		-- bool: Highlight search matches
+opt.hlsearch = true			-- bool: Highlight search matches
 
 -- [[ Whitespaces ]] 
-opt.expandtab = false		-- bool: Use spaces instead of tabs
+opt.expandtab = false	-- bool: Use spaces instead of tabs
 opt.shiftwidth = 4		-- num: Size of indent
 opt.softtabstop = 4		-- num: Number of spaces tabs count for in insert mode
 opt.tabstop = 4			-- num: Number of spaces tabs count for

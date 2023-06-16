@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["dracula.nvim"] = {
     loaded = true,
@@ -163,11 +173,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
-  },
-  ultisnips = {
-    loaded = true,
-    path = "/home/nils/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/SirVer/ultisnips"
   },
   ["vim-commentary"] = {
     loaded = true,

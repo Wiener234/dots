@@ -37,10 +37,10 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-commentary' }
   use { 'junegunn/fzf' }
   use { 'junegunn/fzf.vim' }
-  use { 'SirVer/ultisnips' }
   use { 'honza/vim-snippets' }
   use { 'windwp/nvim-autopairs' }
-
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip'}
 
 
 
