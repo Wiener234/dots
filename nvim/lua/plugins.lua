@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
 
   -- [[ Plugins ]]
 
+
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'andweeb/presence.nvim' }
@@ -36,7 +37,8 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-commentary' }
   use { 'junegunn/fzf' }
   use { 'junegunn/fzf.vim' }
-  -- use { 'SirVer/ultisnips' }
+  use { 'SirVer/ultisnips' }
+  use { 'honza/vim-snippets' }
   use { 'windwp/nvim-autopairs' }
 
 
@@ -67,4 +69,4 @@ end)
 
 -- [ ] vimspector -> graphical debugger
 -- [ ] vim-surround -> souround with ()  '' "" [] {}
--- [ ] ultisnips -> snippets for #!/bin/bash or other languages and stuff
+-- [x] ultisnips -> snippets for #!/bin/bash or other languages and stuff
