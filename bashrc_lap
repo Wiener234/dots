@@ -114,18 +114,18 @@ fi
 export PATH="$PATH:$HOME/.spicetify"
 export PATH="$PATH:$HOME/.local/bin/"
 
-#export GDK_SCALE=2
-#export GDK_DPI_SCALE=0.5
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
-eval "$(starship init bash)"
+DEBEMAIL="wiemernils@gmail.com"
+DEBFULLNAME="Nils Wiemer"
+export DEBEMAIL DEBFULLNAME
 
 #timer for stuff
 
 declare -A pomo_options
 pomo_options["work"]="45"
 pomo_options["break"]="10"
-pomo_options["test"]="0.1"
+pomo_options["test"]="0.75"
 
 
 pomodoro () {
@@ -142,10 +142,11 @@ alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 alias te="pomodoro 'test'"
 
-DEBEMAIL="wiemernils@gmail.com"
-DEBFULLNAME="Nils Wiemer"
-export DEBEMAIL DEBFULLNAME
-#export XKB_DEFAULT_LAYOUT=de
-#export MOZ_ENABLE_WAYLAND=1
 
-export PATH="$PATH:/home/nils/matlab/bin"
+eval "$(starship init bash)"
+
+
+## packaging
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+#source /usr/share/nvm/init-nvm.sh
+export PATH="$PATH:$HOME/.config/emacs/bin/"
