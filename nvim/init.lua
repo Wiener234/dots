@@ -7,6 +7,8 @@ local api = vim.api
 vim.g.mapleader = ","
 vim.g.localleader = "\\"
 
+cmd(':set nu')
+
 -- Imports
 require('plugins')
 require('opts')

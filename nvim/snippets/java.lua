@@ -70,29 +70,103 @@ end --}}}
 
 -- Start Refactoring --
 
-local myFirstSnippet = s('myFirstSnippet', {
-	t('Hi! This is my fist snippet'),
-	i(1,' placeholder_text' ),
-	t({'', 'this is another text mode'})
-})
-table.insert(snippets, myFirstSnippet)
-
-local mySecondSnippet = s(
-	'mySecondSnippet',
+local sout = s('sout',
 	fmt(
 	[[
-local {} = function({})
-	{}
-end
+System.out.println({});
 	]],
 	{
-		i(1, 'myVar'),
-		c(2, {t(''),t('myArgs')}),
-		i(3, '-- TODO: something'),
+		i(1, 'output'),
 	}
 	)
 )
-table.insert(snippets, mySecondSnippet)
+table.insert(snippets, sout)
+
+local simpl_main_boiler = s('simpl_main_boiler', 
+	fmt(
+	[[
+public class {} {{
+
+	public static void main(String[] args){{
+		{}
+	}}
+
+}}
+	]],
+	{
+		f(function(args, snip)
+			local name = vim.split(snip.env.TM_FILENAME, '.', true)
+			return name[1] or ''
+		end, {}),
+		i(1, '// TODO: write function'),
+	}
+	)
+)
+table.insert(snippets, simpl_main_boiler)
+
+local main_boiler = s('main_boiler', 
+	fmt(
+	[[
+package {}
+
+public class {} {{
+
+	public static void main(String[] args){{
+		{}
+	}}
+
+}}
+	]],
+	{
+		i(1,'de.wiener234'),
+		f(function(args, snip)
+			local name = vim.split(snip.env.TM_FILENAME, '.', true)
+			return name[1] or ''
+		end, {}),
+		i(2, '// TODO: write function'),
+	}
+	)
+)
+table.insert(snippets, main_boiler)
+
+local simple_boiler = s('simple_boiler',
+	fmt(
+	[[
+public class {} {{
+	{}
+}}
+	]],
+	{
+		f(function (args, snip)
+			local name = vim.split(snip.env.TM_FILENAME, '.', true)
+			return name[1] or ''
+		end, {}),
+		i(1, '// TODE: write class'),
+	}
+	)
+)
+table.insert(snippets, simple_boiler)
+
+local boiler = s('boiler',
+	fmt(
+	[[
+package {}
+
+public class {} {{
+	{}
+}}
+	]],
+	{
+		i(1, 'de.wiener234'),
+		f(function (args, snip)
+			local name = vim.split(snip.env.TM_FILENAME, '.', true)
+			return name[1] or ''
+		end, {}),
+		i(2, '// TODE: write class'),
+	}
+	)
+)
+table.insert(snippets, boiler)
 
 -- End Refactoring --
 
