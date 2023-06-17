@@ -150,3 +150,6 @@ eval "$(starship init bash)"
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 source /usr/share/nvm/init-nvm.sh
 export PATH="$PATH:$HOME/.config/emacs/bin/"
+
+export EDITOR=nvim
+export SUDO_EDITOR=nvim

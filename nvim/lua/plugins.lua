@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'voldikss/vim-floaterm' }
-  use { 'tpope/vim-surround' }
+  use { 'kylechui/nvim-surround' }
   use { 'tpope/vim-commentary' }
   use { 'junegunn/fzf' }
   use { 'junegunn/fzf.vim' }
@@ -68,5 +68,5 @@ end)
 ------------------------- Plugins to look into and add -----------------------------
 
 -- [ ] vimspector -> graphical debugger
--- [ ] vim-surround -> souround with ()  '' "" [] {}
--- [x] ultisnips -> snippets for #!/bin/bash or other languages and stuff
+-- [x] nvim-surround -> souround with ()  '' "" [] {}
+-- [x] luasnip -> snippets for #!/bin/bash or other languages and stuff
