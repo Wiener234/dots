@@ -70,55 +70,8 @@ end --}}}
 
 -- Start Refactoring --
 
-local myFirstSnippet = s('myFirstSnippet', {
-	t('Hi! This is my fist snippet'),
-	i(1,' placeholder_text' ),
-	t({'', 'this is another text mode'})
-})
-table.insert(snippets, myFirstSnippet)
-
-local mySecondSnippet = s('mySecondSnippet',
-	fmt(
-	[[
-local {} = function({})
-	{}
-end
-	]],
-	{
-		i(1, 'myVar'),
-		c(2, {t(''),t('myArgs')}),
-		i(3, '-- TODO: something'),
-	}
-	)
-)
-table.insert(snippets, mySecondSnippet)
-
-local function fn(
-	args,
-	parent,
-	user_args
-)
-	return '[' .. args[1][1] .. user_args .. ']'
-end
-
-local snippet = s('snippet',
-	fmt(
-	[[
-local {} = s('{}',
-	{}
-)
-table.insert({}, {})
-	]],
-	{
-		i(1, 'varName'),
-		i(2, 'snipName'),
-		i(3, '--TODO: write snippet'),
-		c(4, {t('snippets'), t('autosnippets')}),
-		d(5, function(args)return sn(nil, {i(1,args[1])})end, {1}),
-	}
-	)
-)
-table.insert(snippets, snippet)
+local shbang = s('#!', t('#!/bin/bash'))
+table.insert(snippets, shbang)
 
 
 -- End Refactoring --

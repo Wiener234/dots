@@ -10,8 +10,8 @@ vim.g.localleader = "\\"
 cmd(':set nu')
 
 -- Imports
-require('plugins')
+require('plug')
 require('opts')
 require('keys')
 require('lsp')
-require('snippets')
+require('luasnip_conf')
