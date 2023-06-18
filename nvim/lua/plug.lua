@@ -1,29 +1,72 @@
--- [[ plugconf.lua ]]
+-- [[ plug.lua ]]
+
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+
+  -- [[ Plugins ]]
 
 
--- the setup config table shows all available config options with their default values:
-require("presence"):setup({
-    -- general options
-    auto_update         = true,                       -- update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-    neovim_image_text   = "the one true text editor", -- text displayed when hovered over the neovim image
-    main_image          = "neovim",                   -- main image display (either "neovim" or "file")
-    client_id           = "793271441293967371",       -- use your own discord application client id (not recommended)
-    log_level           = nil,                        -- log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-    debounce_timeout    = 10,                         -- number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-    enable_line_number  = false,                      -- displays the current line number instead of the current project
-    blacklist           = {},                         -- a list of strings or lua patterns that disable rich presence if the current file name, path, or workspace matches
-    buttons             = true,                       -- configure rich presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-    file_assets         = {},                         -- custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'andweeb/presence.nvim' }
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
+  use { 'neovim/nvim-lspconfig' }
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/vim-vsnip' }
+  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
+  use { 'voldikss/vim-floaterm' }
+  use { 'kylechui/nvim-surround' }
+  use { 'tpope/vim-commentary' }
+  use { 'junegunn/fzf' }
+  use { 'junegunn/fzf.vim' }
+  use { 'honza/vim-snippets' }
+  use { 'windwp/nvim-autopairs' }
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip'}
 
-    -- rich presence text options
-    editing_text        = "editing %s",               -- format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-    file_explorer_text  = "browsing %s",              -- format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
-    git_commit_text     = "committing changes",       -- format string rendered when committing changes in git (either string or function(filename: string): string)
-    plugin_manager_text = "managing plugins",         -- format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
-    reading_text        = "reading %s",               -- format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-    workspace_text      = "working on %s",            -- format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-    line_number_text    = "line %s out of %s",        -- format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
-})
 
---nvim-autopairs
-require('nvim-autopairs').setup{}
+
+  -- [[ Themes ]] 
+
+  use { 'Mofiqul/dracula.nvim' }
+  use { 'morhetz/gruvbox' }
+
+
+
+
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
+
+
+
+
+
+
+------------------------- Plugins to look into and add -----------------------------
+
+-- [ ] vimspector -> graphical debugger
+-- [x] nvim-surround -> souround with ()  '' "" [] {}
+-- [x] luasnip -> snippets for #!/bin/bash or other languages and stuff

@@ -11,6 +11,7 @@ cmd(':set nu')
 
 -- Imports
 require('plug')
+require('plugconf')
 require('opts')
 require('keys')
 require('lsp')
