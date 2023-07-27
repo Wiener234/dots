@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
   use { 'windwp/nvim-autopairs' }
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip'}
+  use { 'lervag/vimtex'}
 
 
 
