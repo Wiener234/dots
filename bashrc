@@ -137,10 +137,19 @@ pomodoro () {
   #spd-say "'$val' session done"
   fi
 }
+stopwatch() {
+    start=$(date +%s)
+    while true; do
+        time="$(( $(date +%s) - $start))"
+        printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
 
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 alias te="pomodoro 'test'"
+alias st="stopwatch"
 
 
 eval "$(starship init bash)"

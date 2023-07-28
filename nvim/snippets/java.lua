@@ -107,7 +107,7 @@ table.insert(snippets, simpl_main_boiler)
 local main_boiler = s('main_boiler', 
 	fmt(
 	[[
-package {}
+package {};
 
 public class {} {{
 
@@ -150,7 +150,7 @@ table.insert(snippets, simple_boiler)
 local boiler = s('boiler',
 	fmt(
 	[[
-package {}
+package {};
 
 public class {} {{
 	{}
@@ -168,6 +168,22 @@ public class {} {{
 )
 table.insert(snippets, boiler)
 
+local For = s('for',
+	fmt(
+	[[
+for( {}, {}, {}){{
+	{}
+}}
+	]],
+	{
+		i(1, 'initVar'),
+		i(2, 'condition'),
+		i(3, 'range'),
+		i(4, '// TODO: write for loop'),
+	}
+	)
+)
+table.insert(snippets, For)
 -- End Refactoring --
 
 return snippets, autosnippets
