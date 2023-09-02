@@ -29,6 +29,9 @@ opt.splitright = true 		-- bool: Place new window to right of current one
 vim.wo.foldmethod = 'expr'	-- ?
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
+-- [[ Neorg ]]
+opt.conceallevel = 2
+
 -- [[ CMD ]]
 -- menuone: popup even when there's only one match
 -- noinsert: Do not insert text until a selection is made

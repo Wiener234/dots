@@ -42,13 +42,15 @@ return require('packer').startup(function(use)
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip'}
   use { 'lervag/vimtex'}
+  use { 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
 
 
 
   -- [[ Themes ]] 
 
   use { 'Mofiqul/dracula.nvim' }
-  use { 'morhetz/gruvbox' }
+  -- use { 'morhetz/gruvbox' }
+  use { "ellisonleao/gruvbox.nvim" }
 
 
 
