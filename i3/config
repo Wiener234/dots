@@ -32,7 +32,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec_always --no-startup-id /home/nils/.config/i3/nm-applet.sh 
+exec_always --no-startup-id /home/nils/.config/i3/nm-applet.sh
+# exec_always --no-startup-id nm-applet 
 
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
@@ -70,7 +71,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '#272934' -sf  '#f0cae7' -sb '#6b7475' -nf '#d4d4d4'" 
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun -display-drun Run:"
+bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun -display-drun Run"
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
@@ -226,6 +227,8 @@ for_window[class=".*"] border pixel 0
 
 for_window [class="com.example.hellofx.HelloApplication"] floating enable
 for_window [class="de-wiener234-Main"] floating enable
+
+bindsym $mod+z [title="MAR-LX1A"] floating enable move position -152 0, resize set 2224 px 1080 px
 
 ## Gaps
 gaps inner 4
