@@ -10,7 +10,7 @@ map('t', 'jk', [[<C-\><C-n>]], {})		-- exit terminal mode
 map('n', 'f', ':FloatermToggle<CR>', {})-- open floaterm
 map('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
 map('n', 'N', ':Files ', {})			-- open fzf Files [user input]
-map('n', '\\', ':Buffers<CR>', {})
+map('n', ']', ':Buffers<CR>', {})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
