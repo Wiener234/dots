@@ -11,6 +11,9 @@ map('n', 'f', ':FloatermToggle<CR>', {})-- open floaterm
 map('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
 map('n', 'N', ':Files ', {})			-- open fzf Files [user input]
 map('n', ']', ':Buffers<CR>', {})
+-- nnoremap <leader>p :lua require("nabla").popup()<CR> -- Customize with popup({border = ...})  : `single` (default), `double`, `rounded`
+vim.keymap.set("n", "<localleader>p", require("nabla").popup)
+vim.keymap.set("n", "<localleader>s", require("nabla").toggle_virt)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer

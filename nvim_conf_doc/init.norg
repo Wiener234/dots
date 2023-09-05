@@ -1,0 +1,44 @@
+@document.meta
+title: init
+description: Init file of neovim configs
+authors: Nils
+created: 2023-09-02
+version: 0.0.1
+tangle: ~/.config/nvim/init.lua
+@end
+
+
+@code lua
+local cmd = vim.api.nvim_command
+local api = vim.api
+@end
+Just setting shorter calls for vim.api.nvim_command.
+
+* Leaders
+
+  @code lua
+  vim.g.mapleader = "\\"
+  vim.g.maplocalleader = ","
+  @end
+
+  Map Leader to '\\' and local Leader to ','.
+
+* Line Numbers
+  @code lua
+  cmd(":set nu")
+  cmd(":set rnu")
+  @end
+
+* Load plugins and configs
+  @code lua 
+  require('plug')
+  require('plugconf')
+  require('gruvbox_conf')
+  require('opts')
+  require('keys')
+  require('lsp')
+  require('luasnip_conf')
+  require('vimtex')
+  require('neorg_conf')
+  @end
+

@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
-  gruvbox = {
-    loaded = true,
-    path = "/home/nils/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/morhetz/gruvbox"
-  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -143,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nabla.nvim"] = {
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/nabla.nvim",
+    url = "https://github.com/jbyuki/nabla.nvim"
   },
   neorg = {
     loaded = true,

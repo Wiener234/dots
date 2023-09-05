@@ -16,7 +16,7 @@ ln -s $git_dir/i3_lap/i3 $conf_dir
 echo 'i3 done...'
 
 mv $conf_dir/kitty /home/$USER/old_configs
-ln -s $git_dir/kitty $conf_dir
+ln -s $git_dir/kitty_lap $conf_dir/kitty
 echo 'kitty done...'
 
 mv $conf_dir/nvim /home/$USER/old_configs
@@ -54,3 +54,7 @@ echo 'fehbg done...'
 mv $conf_dir/starship.toml /home/$USER/old_configs
 ln -s $git_dir/starship.toml $conf_dir
 echo 'starship done...'
+
+mv /home/$USER/nvim_conf_doc /home/$USER/old_configs
+ln -s $git_dir/nvim_conf_doc /home/$USER
+echo 'nvim_conf_doc done...'

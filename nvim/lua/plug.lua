@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip'}
   use { 'lervag/vimtex'}
   use { 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
+  use { 'jbyuki/nabla.nvim' } 
 
 
 

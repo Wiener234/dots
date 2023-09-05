@@ -1,0 +1,12 @@
+* Neovim config and doc's
+** Init file
+   {:init:}[init] 
+** Options
+   {:opts:}[opts] 
+
+** Plugin Configs
+
+   {:neorg:}[Neorg]
+
+
+

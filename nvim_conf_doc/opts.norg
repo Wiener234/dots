@@ -1,0 +1,95 @@
+@document.meta
+title: opts
+description: Options file for neovim
+authors: Nils
+created: 2023-09-02
+version: 0.0.1
+tangle: ~/.config/nvim/lua/opts.lua
+@end
+
+* Locals
+  @code lua
+  local opt = vim.opt
+  local cmd = vim.api.nvim_command
+  @end
+
+* Theme
+  @code lua
+  opt.syntax = "ON"
+  opt.termguicolors = true
+  cmd('colorscheme gruvbox')
+  @end
+  Set syntax highlighting on and activate termguicolor.
+  More {:gruvbox:}[Gruvbox options].
+
+* Folds
+  @code lua
+  opt.foldlevel = 9
+  @end
+  Open all folds up to level 9 automaticly.
+
+* Search
+  @code lua
+  opt.ignorecase = true
+  opt.smartcase = true
+  opt.incsearch = true
+  opt.hlsearch = true
+  @end
+  Ignore case in search and override ignorecase if search has capitals. Also use incremental search and highlight search matches.
+
+* Whitespaces
+  @code lua
+  opt.expandtab = false
+  opt.shiftwidth = 4
+  opt.softtabstop = 0
+  opt.tabstop = 4
+  @end
+  Use "\\t" as tabs (no spaces).
+  Shifts a width of 4 when commands like ">>" "<<" "==" are used.
+  Sets number of spaces before tabs are used to number of tabstop.
+  Sets number of spaces befor "\\t" is used to 4.
+
+* Splits
+  @code lua
+  opt.splitright = true
+  @end
+  Places new window to right of current window.
+
+* Treesitter
+  @code lua
+  vim.wo.foldmethod = 'expr'
+  vim.wo.foldexpr = 'nvim_treesitter#foldexpt()'
+  @end
+  No clue what that does!
+
+* Neorg
+  @code lua
+  opt.conceallevel = 2
+  @end
+  Set conceallevel to 2 so that links are not shown
+
+* CMD
+  @code lua
+  opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
+  opt.shortmess = opt.shortmess + { c = true }
+  vim.api.nvim_set_option('updatetime', 300)
+  @end
+  - menuone: popup even when there's only one match
+  - noinsert: Do not insert text until a selection is made
+  - noselect: Do not select, force to select one from the menu
+  - shortmess: avoid showing extra messages when using completion
+  - updatetime: set updatetime for CursorHold
+
+  @code lua
+  cmd([[
+	  set signcolumn=yes
+	  autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+  ]])
+  @end
+  - Fixed column for diagnostics to appear
+  - Show auto diagnostic popup on cursor hover_range
+  - Goto previus / next diagnostic warnign / error
+  - Show inlay_hints more frequently
+
+
+
