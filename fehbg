@@ -1,7 +1,7 @@
 #!/bin/sh
 #feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/mrfluffy-dev-wallpapers/066.jpg' 
-# feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/wiener234/033.png' 
+feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/wiener234/033.png' 
 # feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/mrfluffy-dev-wallpapers/091.jpg' 
-feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/mrfluffy-dev-wallpapers/091.jpg' 
+# feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/mrfluffy-dev-wallpapers/091.jpg' 
 # feh --no-fehbg --bg-scale '/home/nils/Bilder/Background/mrfluffy-dev-wallpapers/070.jpg' 
 
