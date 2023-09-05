@@ -2,11 +2,15 @@
 ** Init file
    {:init:}[init] 
 ** Options
-   {:opts:}[opts] 
+   {:opts:}[Opts] 
+** Keys
+   {:keys:}[Keys]
+
 
 ** Plugin Configs
 
    {:neorg:}[Neorg]
+   {:gruvbox_conf:}[Gruvbox]
 
 
 

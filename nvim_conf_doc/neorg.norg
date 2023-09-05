@@ -4,7 +4,7 @@ description: Neorg config for Neovim
 authors: Nils
 categories: 
 created: 2023-09-03
-updated: 2023-09-03
+updated: 2023-09-05
 version: 0.0.1
 tangle: ~/.config/nvim/lua/neorg_conf.lua
 @end
@@ -14,17 +14,39 @@ require('neorg').setup{
 @end
 
 
+* Plugins without config
 @code lua
     load = {
 		["core.defaults"] = {},
 		["core.concealer"] = {},
 		["core.export"] = {},
+@end
+  - Defaults
+  - Concealer
+  -- give nice symbols
+  - Export
+
+* Export Markdown
+@code lua
 		["core.export.markdown"] = {
 			config = {
 				extensions = "all",
 			},
 		},
 @end
+  Set options for exporting to markdown.
+  - extension 
+  -- sets file extension
+  - extensions
+  -- /all/ to include all options
+  -- /todo-items-basic/
+  -- /todo-items-pending/
+  -- todo-items-extended
+  -- /definition-lists/
+  -- /mathmatics/
+  -- /metadata/
+
+* Dirman
 @code lua
         ["core.dirman"] = {
 			config = {
@@ -35,6 +57,11 @@ require('neorg').setup{
 				default_workspace = "notes",
 			},
 		},
+@end
+  Set default_workspace and add new workspaces.
+
+* EOF
+@code lua
 	},
 }
 @end

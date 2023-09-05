@@ -1,0 +1,108 @@
+@document.meta
+title: keys
+description: Keys maps for Neovim
+authors: nils
+categories: 
+created: 2023-09-05
+updated: 2023-09-05
+version: 0.0.1
+tangle: ~/.config/nvim/lua/keys.lua
+@end
+
+@code lua
+local map = vim.api.nvim_set_keymap
+@end
+
+* General use
+  @code lua
+  map('i', 'jk', '<Esc>', {})				-- exit insert mode
+  map('v', 'jk', '<Esc>', {})				-- exit visual mode
+  map('n', ';', '<C-w>', {})				-- move between windows
+  map('t', 'jk', [[<C-\><C-n>]], {})		-- exit terminal mode
+  map('n', 'f', ':FloatermToggle<CR>', {})-- open floaterm
+  map('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
+  map('n', 'N', ':Files ', {})			-- open fzf Files [user input]
+  map('n', 'z', ':Buffers<CR>', {})
+  map('n', 'Z', ':GFiles?<CR>', {})
+  @end
+  jk 	- Exit insert/visual/terminal mode
+  ;  	- Move between show buffers with hjkl
+  f 	- Open floaterm
+  n 	- Open fzf Files
+  N 	- Open fzf Files in specified dir
+  z 	- Open fzf Buffres
+  Z 	- Open fzf git with file status
+
+* Math
+  @code lua
+  vim.keymap.set("n", "<localleader>p", require("nabla").popup, {})
+  vim.keymap.set("n", "<localleader>s", require("nabla").toggle_virt, {})
+  @end
+  Set keys for nabla
+  \<ll\>p - show math in popup
+  \<ll\>s - show math in file
+
+* fzf
+  @code lua
+  vim.api.nvim_create_autocmd({'BuffEnter', 'TermEnter'} , {
+  	callback = function ()
+  		if vim.bo.filetype == 'fzf' then
+  			vim.keymap.set('n', 'n', function ()
+  				vim.api.nvim_command(':q')
+  				vim.api.nvim_command(":lua vim.keymap.set('n', 'n', ':Files<CR>', {})")
+  			end, {})
+  
+  			vim.keymap.set('n', 'z', function ()
+  				vim.api.nvim_command(':q')
+  				vim.api.nvim_command(":lua vim.keymap.set('n', 'z', ':Buffers<CR>', {})")
+  			end, {})
+  			
+  			vim.keymap.set('n', 'Z', function ()
+  				vim.api.nvim_command(':q')
+  				vim.api.nvim_command(":lua vim.keymap.set('n', 'Z', ':GFiles?<CR>', {})")
+  			end, {})
+         else
+  			vim.keymap.set('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
+  			vim.keymap.set('n', 'N', ':Files ', {})			-- open fzf Files [user input]
+  			vim.keymap.set('n', 'z', ':Buffers<CR>', {})
+  			vim.keymap.set('n', 'Z', ':GFiles?<CR>', {})
+  		end
+  	end,
+  })
+  @end
+  Enable toggle for fzf windows
+
+* Lsp
+  @code lua
+  -- Use LspAttach autocommand to only map the following keys
+  -- after the language server attaches to the current buffer
+  vim.api.nvim_create_autocmd('LspAttach', {
+  	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  	callback = function(ev)
+    	-- Enable completion triggered by <c-x><c-o>
+    	vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    	-- Buffer local mappings.
+    	-- See `:help vim.lsp.*` for documentation on any of the below functions
+    	local opts = { buffer = ev.buf }
+    	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    	vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    	vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    	vim.keymap.set('n', '<space>wl', function()
+    	  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    	end, opts)
+    	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+    	vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    	vim.keymap.set('n', '<space>f', function()
+    	  vim.lsp.buf.format { async = true }
+    	end, opts)
+  	end,
+  })
+  @end
+  Only available when Lsp ist attached.
