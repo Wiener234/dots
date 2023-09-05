@@ -54,3 +54,7 @@ echo 'fehbg done...'
 mv /home/$USER/.config/starship.toml /home/$USER/old_configs
 ln -s $git_dir/starship.toml $conf_dir
 echo 'starship done...'
+
+mv /home/$USER/nvim_conf_doc /home/$USER/old_configs
+ln -s $git_dir/nvim_conf_doc /home/$USER
+echo 'nvim_conf_doc done...'
