@@ -22,16 +22,16 @@ local map = vim.api.nvim_set_keymap
   map('n', 'f', ':FloatermToggle<CR>', {})-- open floaterm
   map('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
   map('n', 'N', ':Files ', {})			-- open fzf Files [user input]
-  map('n', 'z', ':Buffers<CR>', {})
-  map('n', 'Z', ':GFiles?<CR>', {})
+  map('n', '<leader>z', ':Buffers<CR>', {})
+  map('n', '<leader>Z', ':GFiles?<CR>', {})
   @end
   jk 	- Exit insert/visual/terminal mode
   ;  	- Move between show buffers with hjkl
   f 	- Open floaterm
   n 	- Open fzf Files
   N 	- Open fzf Files in specified dir
-  z 	- Open fzf Buffres
-  Z 	- Open fzf git with file status
+  \<l\>z  - Open fzf Buffres
+  \<l\>Z  - Open fzf git with file status
 
 * Math
   @code lua
@@ -44,28 +44,25 @@ local map = vim.api.nvim_set_keymap
 
 * fzf
   @code lua
-  vim.api.nvim_create_autocmd({'BuffEnter', 'TermEnter'} , {
+  vim.api.nvim_create_autocmd({'BufEnter', 'TermEnter'} , {
   	callback = function ()
   		if vim.bo.filetype == 'fzf' then
   			vim.keymap.set('n', 'n', function ()
   				vim.api.nvim_command(':q')
-  				vim.api.nvim_command(":lua vim.keymap.set('n', 'n', ':Files<CR>', {})")
   			end, {})
   
-  			vim.keymap.set('n', 'z', function ()
+  			vim.keymap.set('n', '<leader>z', function ()
   				vim.api.nvim_command(':q')
-  				vim.api.nvim_command(":lua vim.keymap.set('n', 'z', ':Buffers<CR>', {})")
   			end, {})
   			
-  			vim.keymap.set('n', 'Z', function ()
+  			vim.keymap.set('n', '<leader>Z', function ()
   				vim.api.nvim_command(':q')
-  				vim.api.nvim_command(":lua vim.keymap.set('n', 'Z', ':GFiles?<CR>', {})")
   			end, {})
          else
   			vim.keymap.set('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
   			vim.keymap.set('n', 'N', ':Files ', {})			-- open fzf Files [user input]
-  			vim.keymap.set('n', 'z', ':Buffers<CR>', {})
-  			vim.keymap.set('n', 'Z', ':GFiles?<CR>', {})
+  			vim.keymap.set('n', '<leader>z', ':Buffers<CR>', {})
+  			vim.keymap.set('n', '<leader>Z', ':GFiles?<CR>', {})
   		end
   	end,
   })

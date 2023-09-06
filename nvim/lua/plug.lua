@@ -1,5 +1,3 @@
--- [[ plug.lua ]]
-
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -16,61 +14,36 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- [[ Plugins ]]
+use { 'norcalli/nvim-colorizer.lua' }
+use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+use { 'andweeb/presence.nvim' }
+use { 'williamboman/mason.nvim' }
+use { 'williamboman/mason-lspconfig.nvim' }
+use { 'neovim/nvim-lspconfig' }
+use { 'hrsh7th/nvim-cmp' }
+use { 'hrsh7th/cmp-nvim-lsp' }
+use { 'hrsh7th/cmp-path' }
+use { 'hrsh7th/vim-vsnip' }
+use { 'hrsh7th/cmp-nvim-lua' }
+use { 'hrsh7th/cmp-buffer' }
+use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
+use { 'voldikss/vim-floaterm' }
+use { 'kylechui/nvim-surround' }
+use { 'tpope/vim-commentary' }
+use { 'junegunn/fzf' }
+use { 'junegunn/fzf.vim' }
+use { 'honza/vim-snippets' }
+use { 'windwp/nvim-autopairs' }
+use { 'L3MON4D3/LuaSnip' }
+use { 'saadparwaiz1/cmp_luasnip'}
+use { 'lervag/vimtex'}
+use { 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
+use { 'jbyuki/nabla.nvim' } 
 
+use { 'Mofiqul/dracula.nvim' }
+use { "ellisonleao/gruvbox.nvim" }
 
-  use { 'norcalli/nvim-colorizer.lua' }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'andweeb/presence.nvim' }
-  use { 'williamboman/mason.nvim' }
-  use { 'williamboman/mason-lspconfig.nvim' }
-  use { 'neovim/nvim-lspconfig' }
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/vim-vsnip' }
-  use { 'hrsh7th/cmp-nvim-lua' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
-  use { 'voldikss/vim-floaterm' }
-  use { 'kylechui/nvim-surround' }
-  use { 'tpope/vim-commentary' }
-  use { 'junegunn/fzf' }
-  use { 'junegunn/fzf.vim' }
-  use { 'honza/vim-snippets' }
-  use { 'windwp/nvim-autopairs' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'saadparwaiz1/cmp_luasnip'}
-  use { 'lervag/vimtex'}
-  use { 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
-  use { 'jbyuki/nabla.nvim' } 
-
-
-
-  -- [[ Themes ]] 
-
-  use { 'Mofiqul/dracula.nvim' }
-  -- use { 'morhetz/gruvbox' }
-  use { "ellisonleao/gruvbox.nvim" }
-
-
-
-
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
-
-
-
-
-
-------------------------- Plugins to look into and add -----------------------------
-
--- [ ] vimspector -> graphical debugger
--- [x] nvim-surround -> souround with ()  '' "" [] {}
--- [x] luasnip -> snippets for #!/bin/bash or other languages and stuff

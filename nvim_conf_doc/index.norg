@@ -1,16 +1,18 @@
 * Neovim config and doc's
 ** Init file
    {:init:}[init] 
+
 ** Options
    {:opts:}[Opts] 
+
 ** Keys
    {:keys:}[Keys]
 
-
 ** Plugin Configs
-
    {:neorg:}[Neorg]
    {:gruvbox_conf:}[Gruvbox]
-
-
-
+   {:lsp:}[Lsp]
+   {:luasnip:}[Luasnip]
+   {:plugins:}[Plugins]
+   {:plugins_conf:}[PluginsConf]
+   {:vimtex:}[Vimtex]

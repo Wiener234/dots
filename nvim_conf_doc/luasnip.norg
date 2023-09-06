@@ -1,3 +1,15 @@
+@document.meta
+title: luasnip
+description: config for Luasnip in Neovim
+authors: nils
+categories: 
+created: 2023-09-06
+updated: 2023-09-06
+version: 0.0.1
+tangle: ~/.config/nvim/lua/luasnip_conf.lua
+@end
+
+@code lua
 local ls = require('luasnip')
 
 require('luasnip.loaders.from_lua').load( { paths = '~/.config/nvim/snippets/' } )
@@ -16,7 +28,9 @@ ls.config.set_config({
 	},
 
 })
+@end
 
+@code comment
 vim.keymap.set( { 'i', 's'} , '<A-p>', function()
 	if ls.expand_or_jumpable() then
 		ls.expand()
@@ -43,3 +57,5 @@ vim.keymap.set( {'i', 's'} , '<A-m>', function()
 end)
 
 vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/luasnip_conf.lua<CR>', {})
+@end
+Not needed until further notice.

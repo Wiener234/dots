@@ -1,3 +1,8 @@
+-- [[ lsp.lua ]]
+
+local vim = vim
+
+
 require('mason').setup()
 require('mason-lspconfig').setup()
 require('mason-lspconfig').setup_handlers{
@@ -6,6 +11,7 @@ require('mason-lspconfig').setup_handlers{
 	end,
 }
 
+-- Lsp Diagnostics Options Setup
 local sign = function(opts)
 	vim.fn.sign_define(opts.name, {
 		texthl = opts.name,
@@ -33,16 +39,25 @@ vim.diagnostic.config({
     },
 })
 
+-- Completion Plugin Setup
+
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+
 local cmp = require'cmp'
 local luasnip = require('luasnip')
 cmp.setup({
+  -- Enable LSP snippets
   snippet = {
     expand = function(args)
         -- vim.fn["vsnip#anonymous"](args.body)
 		luasnip.lsp_expand(args.body)
     end,
   },
-
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -81,50 +96,43 @@ cmp.setup({
       end
     end, { "i", "s" }),
   },
-
   -- Installed sources:
   sources = {
-	  { name = 'luasnip' },
+	{ name = 'luasnip' },
     { name = 'path' },                              -- file paths
-    { name = 'nvim_lsp', keyword_length = 2 },      -- from language server
+    { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
     { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
     { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
     { name = 'buffer', keyword_length = 2 },        -- source current buffer
     { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
     { name = 'calc'},                               -- source for math calculation
   },
-
- window = {
-     completion = cmp.config.window.bordered(),
-     documentation = cmp.config.window.bordered(),
- },
- formatting = {
-     fields = {'menu', 'abbr', 'kind'},
-     format = function(entry, item)
-         local menu_icon ={
-             nvim_lsp = 'λ',
-             vsnip = '⋗',
-             buffer = 'Ω',
-             path = '',
-         }
-         item.menu = menu_icon[entry.source.name]
-         return item
-     end,
- },
+  window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+  },
+  formatting = {
+      fields = {'menu', 'abbr', 'kind'},
+      format = function(entry, item)
+          local menu_icon ={
+              nvim_lsp = 'λ',
+              vsnip = '⋗',
+              buffer = 'Ω',
+              path = '',
+          }
+          item.menu = menu_icon[entry.source.name]
+          return item
+      end,
+  },
 })
 
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
+-- Treesitter Plugin Setup 
 require('nvim-treesitter.configs').setup {
   ensure_installed = { 'lua', 'c', 'java' },
   auto_install = true,
   highlight = {
     enable = true,
-    -- disable = {'latex'},
+	disable = {'latex'},
     additional_vim_regex_highlighting=false,
   },
   ident = { enable = true },
@@ -134,7 +142,6 @@ require('nvim-treesitter.configs').setup {
     max_file_lines = nil,
   }
 }
-
 
 
 local npairs = require("nvim-autopairs")

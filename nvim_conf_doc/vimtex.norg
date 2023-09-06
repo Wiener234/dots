@@ -1,0 +1,24 @@
+@document.meta
+title: vimtex
+description: Vimtex config for Neovim
+authors: nils
+categories: 
+created: 2023-09-06
+updated: 2023-09-06
+version: 0.0.1
+tangle: ~/.config/nvim/lua/vimtex.lua
+@end
+
+@code lua
+syntax = enable
+
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_forward_search_on_start = 0
+vim.g.tex_flavor = 'latex'
+vim.g.vimtex_quickfix_open_on_warning = 0
+vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
+@end
+Set zathura as pdf viewer.
+Open quickfix window only when error.
+Close quickfix window after keystroke in other buffer.
+

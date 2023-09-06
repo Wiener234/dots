@@ -1,3 +1,7 @@
+-- [[ plugconf.lua ]]
+
+
+-- the setup config table shows all available config options with their default values:
 require("presence"):setup({
     -- general options
     auto_update         = true,                       -- update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
@@ -21,4 +25,5 @@ require("presence"):setup({
     line_number_text    = "line %s out of %s",        -- format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
 })
 
+--nvim-autopairs
 require('nvim-autopairs').setup{}
