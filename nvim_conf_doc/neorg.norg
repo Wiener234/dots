@@ -4,7 +4,7 @@ description: Neorg config for Neovim
 authors: Nils
 categories: 
 created: 2023-09-03
-updated: 2023-09-05
+updated: 2023-09-06
 version: 0.0.1
 tangle: ~/.config/nvim/lua/neorg_conf.lua
 @end
@@ -51,7 +51,7 @@ require('neorg').setup{
         ["core.dirman"] = {
 			config = {
 				workspaces = {
-					notes = "~/notes",
+					notes = "~/Nextcloud/Notizen/notes",
 					nvim_conf = "~/nvim_conf_doc"
 				},
 				default_workspace = "notes",

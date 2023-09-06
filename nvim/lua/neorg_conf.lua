@@ -4,7 +4,8 @@ require('neorg').setup{
 		["core.defaults"] = {},
 		["core.concealer"] = {},
 		["core.export"] = {},
-		["core.export.markdown"] = {
+
+  ["core.export.markdown"] = {
 			config = {
 				extensions = "all",
 			},
@@ -13,11 +14,12 @@ require('neorg').setup{
         ["core.dirman"] = {
 			config = {
 				workspaces = {
-					notes = "~/notes",
+					notes = "~/Nextcloud/Notizen/notes",
 					nvim_conf = "~/nvim_conf_doc"
 				},
 				default_workspace = "notes",
 			},
 		},
-	},
+
+ },
 }
