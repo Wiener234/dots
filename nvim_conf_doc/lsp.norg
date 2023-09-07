@@ -4,7 +4,7 @@ description: Lsp config for Neovim
 authors: nils
 categories: 
 created: 2023-09-05
-updated: 2023-09-06
+updated: 2023-09-07
 version: 0.0.1
 tangle: ~/.config/nvim/lua/lsp.lua
 @end
@@ -54,6 +54,16 @@ tangle: ~/.config/nvim/lua/lsp.lua
   })
   @end
   Set what is shown with the diagnostics and how.
+
+* Completion
+  @code lua
+  local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  end
+  @end
+  No fucking clue.
 
 ** Luasnip
    a
@@ -169,15 +179,6 @@ tangle: ~/.config/nvim/lua/lsp.lua
    @end
    Designe of the popup
 
-* Completion
-  @code lua
-  local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  end
-  @end
-  No fucking clue.
 
 * Treesitter
   @code lua
