@@ -154,6 +154,11 @@ alias st="stopwatch"
 
 eval "$(starship init bash)"
 
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+if [ $? -ge 2 ]; then
+  ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+fi
+
 
 ## packaging
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
