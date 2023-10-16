@@ -4,6 +4,8 @@ require('neorg').setup{
 		["core.defaults"] = {},
 		["core.concealer"] = {},
 		["core.export"] = {},
+		["core.ui"] = {},
+		["core.ui.calendar"] = {},
 
   ["core.export.markdown"] = {
 			config = {
@@ -20,6 +22,12 @@ require('neorg').setup{
 				default_workspace = "notes",
 			},
 		},
+
+["core.journal"] = {
+	config = {
+		template_name = "journal_template.norg",
+	},
+},
 
  },
 }

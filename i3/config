@@ -296,7 +296,8 @@ exec nextcloud
 exec_always /usr/bin/dunst
 exec xinput --set-prop "Compx 2.4G Receiver Mouse" 'libinput Accel Profile Enabled' 0, 1
 exec_always picom
-exec_always setxkbmap -layout us -variant alt-intl
+# exec_always setxkbmap -layout us -variant alt-intl
+exec_always setxkbmap -layout us -variant alt-intl -print |     xkbcomp -I"/etc/xkb" - "$DISPLAY"
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id timeshift --check
 #exec nmcli connection up "Kabelgebundene Verbindung"
