@@ -4,13 +4,15 @@ description: All plugins in Neovim
 authors: nils
 categories: 
 created: 2023-09-06
-updated: 2023-09-06
+updated: 2023-10-22T22:14:01+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/plug.lua
 @end
 
 * Plugins to consider
   - ( ) vimspector -> graphical debugger
+  - ( ) vim_table_mode -> manage table
+  - ( ) better-escape -> make j key not wait
 
 * Plugins to setup
   - ( ) nvim_surround
@@ -61,6 +63,8 @@ tangle: ~/.config/nvim/lua/plug.lua
   use { 'lervag/vimtex'}
   use { 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
   use { 'jbyuki/nabla.nvim' } 
+  use { 'max397574/better-escape.nvim', config = function() require('better_escape').setup() end,}
+  use { 'dhruvasagar/vim-table-mode'}
   @end
 
 * Themes

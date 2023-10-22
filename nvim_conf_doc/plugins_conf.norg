@@ -4,7 +4,7 @@ description: All configs for plugins used in neovim.
 authors: nils
 categories: 
 created: 2023-09-06
-updated: 2023-09-06
+updated: 2023-10-22T21:49:06+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/plugconf.lua
 @end
@@ -37,4 +37,18 @@ tangle: ~/.config/nvim/lua/plugconf.lua
 * Autopairs
   @code lua
   require('nvim-autopairs').setup{}
+  @end
+* better-escape
+  @code lua
+  require('better_escape').setup{
+  	mapping = {"jk"}, -- a table with mappings to use
+    -- timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+    timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+  	clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+  	keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+  	-- example(recommended)
+  	-- keys = function()
+  	--   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
+  	-- end,
+  }
   @end

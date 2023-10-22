@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/nils/.cache/nvim/packer_hererocks/2.1.1694285958/share/lua/5.1/?.lua;/home/nils/.cache/nvim/packer_hererocks/2.1.1694285958/share/lua/5.1/?/init.lua;/home/nils/.cache/nvim/packer_hererocks/2.1.1694285958/lib/luarocks/rocks-5.1/?.lua;/home/nils/.cache/nvim/packer_hererocks/2.1.1694285958/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/nils/.cache/nvim/packer_hererocks/2.1.1694285958/lib/lua/5.1/?.so"
+local package_path_str = "/home/nils/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?.lua;/home/nils/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?/init.lua;/home/nils/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?.lua;/home/nils/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/nils/.cache/nvim/packer_hererocks/2.1.1696795921/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -78,6 +78,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["better-escape.nvim"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0" },
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/better-escape.nvim",
+    url = "https://github.com/max397574/better-escape.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -209,6 +215,11 @@ _G.packer_plugins = {
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
   },
+  ["vim-table-mode"] = {
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    url = "https://github.com/dhruvasagar/vim-table-mode"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -222,6 +233,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: better-escape.nvim
+time([[Config for better-escape.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0", "config", "better-escape.nvim")
+time([[Config for better-escape.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

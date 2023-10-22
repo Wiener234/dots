@@ -167,3 +167,5 @@ export PATH="$PATH:$HOME/.config/emacs/bin/"
 
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
+
+export PATH="$HOME/.elan/bin:$PATH"
