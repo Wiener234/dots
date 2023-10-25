@@ -12,7 +12,7 @@
    {:neorg:}[Neorg]
    {:gruvbox_conf:}[Gruvbox]
    {:lsp:}[Lsp]
-   {:dap:}[Dap]
+   {:dap:}[Dap_conf]
    {:luasnip:}[Luasnip]
    {:plugins:}[Plugins]
    {:plugins_conf:}[PluginsConf]

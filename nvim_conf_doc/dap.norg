@@ -4,33 +4,104 @@ description: Dap config for Neovim
 authors: nils
 categories: 
 created: 2023-10-24T20:08:27+0100
-updated: 2023-10-24T23:08:10+0100
+updated: 2023-10-25T19:58:52+0100
 version: 0.0.1
-tangle: ~/.config/nvim/lua/dap.lua
+tangle: ~/.config/nvim/lua/dap_conf.lua
 @end
 
-* Dap with Mason 
+* Dap UI
   @code lua
-  @end 
-
-* Dap
-  %@code lua%
-  local dap = require('dap')
-
-  dap.configurations = {
-	  java = {
-		  type = "java",
-		  name = "Debug",
-		  request = "launch",
-		  program = "${file}",
-	  },
+  require('dapui').setup{
+    controls = {
+      element = "repl",
+      enabled = true,
+      icons = {
+        disconnect = "",
+        pause = "",
+        play = "",
+        run_last = "",
+        step_back = "",
+        step_into = "",
+        step_out = "",
+        step_over = "",
+        terminate = ""
+      }
+    },
+    element_mappings = {},
+    expand_lines = true,
+    floating = {
+      border = "single",
+      mappings = {
+        close = { "q", "<Esc>" }
+      }
+    },
+    force_buffers = true,
+    icons = {
+      collapsed = "",
+      current_frame = "",
+      expanded = ""
+    },
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.25
+          }, {
+            id = "breakpoints",
+            size = 0.25
+          }, {
+            id = "stacks",
+            size = 0.25
+          }, {
+            id = "watches",
+            size = 0.25
+          } },
+		  position = "right",
+        size = 40
+      }, {
+        elements = { {
+            id = "repl",
+            size = 0.5
+          }, {
+            id = "console",
+            size = 0.5
+          } },
+        position = "bottom",
+        size = 10
+      } },
+    mappings = {
+      edit = "e",
+      expand = { "<CR>", "<2-LeftMouse>" },
+      open = "o",
+      remove = "d",
+      repl = "r",
+      toggle = "t"
+    },
+    render = {
+      indent = 1,
+      max_value_lines = 100
+    }
   }
 
-  dap.adapters.java = {
-	  type = "server",
-	  port = "${port}",
-	  executable = {
-		  command = vim.fn.stdpath("data") .. '/mason/bin/'
-	  }
-  }
-  %@end%
+
+  require('dap.ext.vscode').load_launchjs()
+
+  vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+  vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+
+  vim.keymap.set('n', '<F5>', require 'dap'.continue)
+  vim.keymap.set('n', '<F6>', require 'dap'.step_into)
+  vim.keymap.set('n', '<F7>', require 'dap'.step_over)
+  vim.keymap.set('n', '<F8>', require 'dap'.step_out)
+  vim.keymap.set('n', '<localleader>b', require 'dap'.toggle_breakpoint)
+  vim.keymap.set('n', '<localleader>d', require 'dapui'.toggle)
+
+  vim.api.nvim_create_user_command("Debug", function()
+	  print("Starting Java Debugsession...")
+	  require('jdtls.dap').setup_dap_main_class_configs()
+	  require('dapui').open()
+  end, {})
+  vim.api.nvim_create_user_command("Launchjs", function()
+	  require('dap.ext.vscode').load_launchjs()
+  end, {})
+
+  @end

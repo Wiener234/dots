@@ -4,7 +4,7 @@ description: All plugins in Neovim
 authors: nils
 categories: 
 created: 2023-09-06
-updated: 2023-10-25T16:28:33+0100
+updated: 2023-10-25T17:11:04+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/plug.lua
 @end
@@ -86,3 +86,4 @@ tangle: ~/.config/nvim/lua/plug.lua
   @end
   Automaticlly set up configuration after cloning packer.nvim
   Has to be after plugins.
+  
