@@ -12,7 +12,11 @@
    {:neorg:}[Neorg]
    {:gruvbox_conf:}[Gruvbox]
    {:lsp:}[Lsp]
+   {:dap:}[Dap]
    {:luasnip:}[Luasnip]
    {:plugins:}[Plugins]
    {:plugins_conf:}[PluginsConf]
    {:vimtex:}[Vimtex]
+
+** After
+   {:java:}[java]

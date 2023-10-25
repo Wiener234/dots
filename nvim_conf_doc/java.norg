@@ -1,0 +1,24 @@
+@document.meta
+title: java
+description: 
+authors: nils
+categories: 
+created: 2023-10-24T21:25:50+0100
+updated: 2023-10-25T16:24:00+0100
+version: 1.1.1
+tangle: ~/.config/nvim/ftplugin/java.lua
+@end
+
+@code lua
+local config = {
+	cmd = {vim.fn.stdpath "data" .. '/mason/packages/jdtls/bin/jdtls'},
+	root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, {upward = true})[1]),
+	init_options = {
+		bundles = {
+			vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
+		}
+	},
+}
+require('jdtls').start_or_attach(config)
+
+@end

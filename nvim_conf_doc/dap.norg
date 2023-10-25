@@ -1,0 +1,36 @@
+@document.meta
+title: dap
+description: Dap config for Neovim
+authors: nils
+categories: 
+created: 2023-10-24T20:08:27+0100
+updated: 2023-10-24T23:08:10+0100
+version: 0.0.1
+tangle: ~/.config/nvim/lua/dap.lua
+@end
+
+* Dap with Mason 
+  @code lua
+  @end 
+
+* Dap
+  %@code lua%
+  local dap = require('dap')
+
+  dap.configurations = {
+	  java = {
+		  type = "java",
+		  name = "Debug",
+		  request = "launch",
+		  program = "${file}",
+	  },
+  }
+
+  dap.adapters.java = {
+	  type = "server",
+	  port = "${port}",
+	  executable = {
+		  command = vim.fn.stdpath("data") .. '/mason/bin/'
+	  }
+  }
+  %@end%

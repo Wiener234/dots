@@ -32,11 +32,11 @@ Just setting shorter calls for vim.api.nvim_command.
 * Load plugins and configs
   @code lua 
   require('plug')
+  require('lsp')
   require('plugconf')
   require('gruvbox_conf')
   require('opts')
   require('keys')
-  require('lsp')
   require('luasnip_conf')
   require('vimtex')
   require('neorg_conf')

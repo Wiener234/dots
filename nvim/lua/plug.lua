@@ -41,6 +41,10 @@ use { 'nvim-neorg/neorg', run = ':Neorg sync-parsers', requires = 'nvim-lua/plen
 use { 'jbyuki/nabla.nvim' } 
 use { 'max397574/better-escape.nvim', config = function() require('better_escape').setup() end,}
 use { 'dhruvasagar/vim-table-mode'}
+use { 'mfussenegger/nvim-dap'}
+use { 'jay-babu/mason-nvim-dap.nvim' }
+use { 'mfussenegger/nvim-jdtls' }
+use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
 
 use { 'Mofiqul/dracula.nvim' }
 use { "ellisonleao/gruvbox.nvim" }

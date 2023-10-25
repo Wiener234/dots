@@ -4,7 +4,7 @@ description: Lsp config for Neovim
 authors: nils
 categories: 
 created: 2023-09-05
-updated: 2023-09-07
+updated: 2023-10-25T16:08:10+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/lsp.lua
 @end
@@ -17,6 +17,7 @@ tangle: ~/.config/nvim/lua/lsp.lua
   	function(server_name)
   		require('lspconfig')[server_name].setup{}
   	end,
+	  ["jdtls"] = function() end,
   }
   @end
   Setup Mason to install Lsp's and set them up
