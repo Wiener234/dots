@@ -90,3 +90,10 @@ end, {})
 vim.api.nvim_create_user_command("Launchjs", function()
  require('dap.ext.vscode').load_launchjs()
 end, {})
+
+local dap = require('dap')
+dap.adapters.cppdbg = {
+ id = 'cppdbg',
+ type = 'executable',
+ command = {vim.fn.stdpath "data" .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7'},
+}

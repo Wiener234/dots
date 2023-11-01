@@ -4,7 +4,7 @@ description: Dap config for Neovim
 authors: nils
 categories: 
 created: 2023-10-24T20:08:27+0100
-updated: 2023-10-25T19:58:52+0100
+updated: 2023-10-26T13:12:13+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/dap_conf.lua
 @end
@@ -103,5 +103,12 @@ tangle: ~/.config/nvim/lua/dap_conf.lua
   vim.api.nvim_create_user_command("Launchjs", function()
 	  require('dap.ext.vscode').load_launchjs()
   end, {})
+
+  local dap = require('dap')
+  dap.adapters.cppdbg = {
+	  id = 'cppdbg',
+	  type = 'executable',
+	  command = {vim.fn.stdpath "data" .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7'},
+  }
 
   @end

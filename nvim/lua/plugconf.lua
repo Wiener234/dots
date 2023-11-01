@@ -22,6 +22,12 @@ require("presence"):setup({
 })
 
 require('nvim-autopairs').setup{}
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on(
+ 'confirm_done',
+ cmp_autopairs.on_confirm_done()
+)
 
 require('better_escape').setup{
 	mapping = {"jk"}, -- a table with mappings to use
@@ -34,3 +40,5 @@ require('better_escape').setup{
 	--   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
 	-- end,
 }
+
+require('nvim-tree').setup()
