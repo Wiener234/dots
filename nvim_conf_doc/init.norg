@@ -13,6 +13,11 @@ local cmd = vim.api.nvim_command
 local api = vim.api
 @end
 Just setting shorter calls for vim.api.nvim_command.
+* Add luarocks 5.1 rocks
+@code lua
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+  package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+@end
 
 * Leaders
 

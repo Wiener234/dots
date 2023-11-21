@@ -70,6 +70,7 @@ tangle: ~/.config/nvim/lua/plug.lua
   use { 'mfussenegger/nvim-jdtls' }
   use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
+  use { '3rd/image.nvim' }
   @end
 
 * Themes

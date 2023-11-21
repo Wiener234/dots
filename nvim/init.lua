@@ -1,6 +1,9 @@
 local cmd = vim.api.nvim_command
 local api = vim.api
 
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+  package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 

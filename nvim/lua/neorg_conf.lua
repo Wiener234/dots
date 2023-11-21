@@ -6,6 +6,8 @@ require('neorg').setup{
 		["core.export"] = {},
 		["core.ui"] = {},
 		["core.ui.calendar"] = {},
+		["core.integrations.image"] = {},
+		["core.latex.renderer"] = {},
 
   ["core.export.markdown"] = {
 			config = {
