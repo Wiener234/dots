@@ -1,6 +1,12 @@
 local opt = vim.opt
 local cmd = vim.api.nvim_command
 
+opt.wrap = false
+opt.clipboard = "unnamedplus"
+opt.scrolloff = 999
+opt.virtualedit = "block"
+opt.inccommand = "split"
+
 opt.syntax = "ON"
 opt.termguicolors = true
 cmd('colorscheme gruvbox')
@@ -12,10 +18,10 @@ opt.smartcase = true
 opt.incsearch = true
 opt.hlsearch = true
 
-opt.expandtab = false
+opt.expandtab = true
+opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 0
-opt.tabstop = 4
 
 opt.splitright = true
 
