@@ -47,6 +47,7 @@ use { 'mfussenegger/nvim-jdtls' }
 use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
 use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
 use { '3rd/image.nvim' }
+use { 'kaarmu/typst.vim', ft = {'typst'} }
 
 use { 'Mofiqul/dracula.nvim' }
 use { "ellisonleao/gruvbox.nvim" }

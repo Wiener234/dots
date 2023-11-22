@@ -235,6 +235,11 @@ _G.packer_plugins = {
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
   },
+  ["typst.vim"] = {
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/typst.vim",
+    url = "https://github.com/kaarmu/typst.vim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/vim-commentary",

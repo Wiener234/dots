@@ -71,6 +71,7 @@ tangle: ~/.config/nvim/lua/plug.lua
   use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
   use { '3rd/image.nvim' }
+  use { 'kaarmu/typst.vim', ft = {'typst'} }
   @end
 
 * Themes
