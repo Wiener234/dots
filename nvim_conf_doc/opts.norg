@@ -20,6 +20,8 @@ tangle: ~/.config/nvim/lua/opts.lua
   opt.scrolloff = 999
   opt.virtualedit = "block"
   opt.inccommand = "split"
+  opt.colorcolumn = "80" 
+  cmd([[hi ColorColumn guibg=#333333]])
   @end
 
 * Theme

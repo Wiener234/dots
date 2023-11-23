@@ -6,6 +6,8 @@ opt.clipboard = "unnamedplus"
 opt.scrolloff = 999
 opt.virtualedit = "block"
 opt.inccommand = "split"
+opt.colorcolumn = "80" 
+cmd([[hi ColorColumn guibg=#333333]])
 
 opt.syntax = "ON"
 opt.termguicolors = true
