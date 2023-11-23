@@ -7,11 +7,11 @@ opt.scrolloff = 999
 opt.virtualedit = "block"
 opt.inccommand = "split"
 opt.colorcolumn = "80" 
-cmd([[hi ColorColumn guibg=#333333]])
 
 opt.syntax = "ON"
 opt.termguicolors = true
 cmd('colorscheme gruvbox')
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = '#333333' })
 
 opt.foldlevel = 9
 

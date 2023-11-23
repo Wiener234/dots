@@ -18,6 +18,12 @@ tangle: ~/.config/nvim/lua/lsp.lua
   		require('lspconfig')[server_name].setup{}
   	end,
 	  ["jdtls"] = function() end,
+      ["typst_lsp"] = function()
+          require('lspconfig')["typst_lsp"].setup{
+              settings = {
+                  exportPdf = "onType"
+              }
+          }
   }
   @end
   Setup Mason to install Lsp's and set them up

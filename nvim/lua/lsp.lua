@@ -5,6 +5,13 @@ require('mason-lspconfig').setup_handlers{
 		require('lspconfig')[server_name].setup{}
 	end,
  ["jdtls"] = function() end,
+    ["typst_lsp"] = function()
+        require('lspconfig')["typst_lsp"].setup{
+            settings = {
+                exportPdf = "onType"
+            }
+        }
+end
 }
 
 local sign = function(opts)

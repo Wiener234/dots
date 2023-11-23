@@ -21,7 +21,6 @@ tangle: ~/.config/nvim/lua/opts.lua
   opt.virtualedit = "block"
   opt.inccommand = "split"
   opt.colorcolumn = "80" 
-  cmd([[hi ColorColumn guibg=#333333]])
   @end
 
 * Theme
@@ -29,6 +28,7 @@ tangle: ~/.config/nvim/lua/opts.lua
   opt.syntax = "ON"
   opt.termguicolors = true
   cmd('colorscheme gruvbox')
+  vim.api.nvim_set_hl(0, "ColorColumn", { bg = '#333333' })
   @end
   Set syntax highlighting on and activate termguicolor.
   More {:gruvbox:}[Gruvbox options].
