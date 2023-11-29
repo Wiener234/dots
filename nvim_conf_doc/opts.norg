@@ -28,7 +28,7 @@ tangle: ~/.config/nvim/lua/opts.lua
   opt.syntax = "ON"
   opt.termguicolors = true
   cmd('colorscheme gruvbox')
-  vim.api.nvim_set_hl(0, "ColorColumn", { bg = '#272727' })
+  vim.api.nvim_set_hl(0, "ColorColumn", { bg = '#202020' })
   @end
   Set syntax highlighting on and activate termguicolor.
   More {:gruvbox:}[Gruvbox options].

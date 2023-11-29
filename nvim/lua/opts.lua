@@ -11,7 +11,7 @@ opt.colorcolumn = "80"
 opt.syntax = "ON"
 opt.termguicolors = true
 cmd('colorscheme gruvbox')
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = '#272727' })
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = '#202020' })
 
 opt.foldlevel = 9
 
