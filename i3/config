@@ -301,6 +301,7 @@ exec_always picom
 exec_always setxkbmap -layout us -variant alt-intl -print |     xkbcomp -I"/etc/xkb" - "$DISPLAY"
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id timeshift --check
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec nmcli connection up "Kabelgebundene Verbindung"
 
 
