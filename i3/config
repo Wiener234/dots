@@ -277,8 +277,9 @@ bindsym $mod+shift+Next exec --no-startup-id systemctl poweroff, mode "default"
 # bindsym $mod+shift+n exec --no-startup-id systemctl reboot, mode "default"
 bindsym $mod+shift+Prior exec --no-startup-id $i3lockwall 
 bindsym $mod+y exec nemo
-bindsym $mod+m exec /usr/bin/spotify 
-bindsym $mod+shift+h exec --no-startup-id $i3lockwall && sleep 1 && systemctl suspend, mode "default"
+# bindsym $mod+m exec /usr/bin/spotify 
+bindsym $mod+m exec kitty spotify_player
+# bindsym $mod+shift+h exec --no-startup-id $i3lockwall && sleep 1 && systemctl suspend, mode "default"
 bindsym $mod+p move workspace to output right
 bindsym $mod+shift+s exec flameshot gui
 bindsym $mod+t exec thunderbird
@@ -287,7 +288,7 @@ bindsym $mod+shift+v exec code
 bindsym $mod+n exec --no-startup-id flash_window
 bindsym $mod+shift+o exec soffice
 bindsym $mod+shift+d exec discord
-bindsym $mod+shift+n exec systemctl --user restart noisetorch
+# bindsym $mod+shift+n exec systemctl --user restart noisetorch
 bindsym $mod+shift+q exec /home/nils/Applications/Logseq-linux-x64-0.8.10_903b9ea0f679ff6acafcd778aea23f4c.AppImage
 
 
