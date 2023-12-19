@@ -223,7 +223,7 @@ bindsym $mod+r mode "resize"
 new_window pixel 0
 focus_follows_mouse  yes
 workspace_auto_back_and_forth no
-for_window[class=".*"] border pixel 0
+for_window[class=".*"] border pixel 4
 
 for_window [class="com.example.hellofx.HelloApplication"] floating enable
 for_window [class="de-wiener234-Main"] floating enable
@@ -238,12 +238,12 @@ gaps top 29
 # smart_borders on
 
 # Color
-set $cbg "#f1cae7"
+set $cbg "#928374"
 set $ccolor "#efebe0"
 # set $cunfo "#85b9b8"
-set $cunfo "#62678d"
-set $cindi "#145ba7"
-set $cindiu "#8a9db1"
+set $cunfo "#928374"
+set $cindi "#928374"
+set $cindiu "#928374"
 
 #<colorclass>           <border> <background> <text> <indicator> <child_border>
 client.focused          $cbg    $cbg    $ccolor $cindi   $cbg
@@ -277,8 +277,9 @@ bindsym $mod+shift+Next exec --no-startup-id systemctl poweroff, mode "default"
 # bindsym $mod+shift+n exec --no-startup-id systemctl reboot, mode "default"
 bindsym $mod+shift+Prior exec --no-startup-id $i3lockwall 
 bindsym $mod+y exec nemo
-bindsym $mod+m exec /usr/bin/spotify 
-bindsym $mod+shift+h exec --no-startup-id $i3lockwall && sleep 1 && systemctl suspend, mode "default"
+# bindsym $mod+m exec /usr/bin/spotify 
+bindsym $mod+m exec kitty spotify_player
+# bindsym $mod+shift+h exec --no-startup-id $i3lockwall && sleep 1 && systemctl suspend, mode "default"
 bindsym $mod+p move workspace to output right
 bindsym $mod+shift+s exec flameshot gui
 bindsym $mod+t exec thunderbird
@@ -287,7 +288,7 @@ bindsym $mod+shift+v exec code
 bindsym $mod+n exec --no-startup-id flash_window
 bindsym $mod+shift+o exec soffice
 bindsym $mod+shift+d exec discord
-bindsym $mod+shift+n exec systemctl --user restart noisetorch
+# bindsym $mod+shift+n exec systemctl --user restart noisetorch
 bindsym $mod+shift+q exec /home/nils/Applications/Logseq-linux-x64-0.8.10_903b9ea0f679ff6acafcd778aea23f4c.AppImage
 
 
@@ -300,6 +301,7 @@ exec_always picom
 exec_always setxkbmap -layout us -variant alt-intl -print |     xkbcomp -I"/etc/xkb" - "$DISPLAY"
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id timeshift --check
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec nmcli connection up "Kabelgebundene Verbindung"
 
 
