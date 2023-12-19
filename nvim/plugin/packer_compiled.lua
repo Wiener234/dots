@@ -220,6 +220,11 @@ _G.packer_plugins = {
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  nxwm = {
+    loaded = true,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/start/nxwm",
+    url = "https://github.com/altermo/nxwm"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/nils/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -236,8 +241,10 @@ _G.packer_plugins = {
     url = "https://github.com/andweeb/presence.nvim"
   },
   ["typst.vim"] = {
-    loaded = true,
-    path = "/home/nils/.local/share/nvim/site/pack/packer/start/typst.vim",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/nils/.local/share/nvim/site/pack/packer/opt/typst.vim",
     url = "https://github.com/kaarmu/typst.vim"
   },
   ["vim-commentary"] = {
@@ -277,6 +284,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for better-escape.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0", "config", "better-escape.nvim")
 time([[Config for better-escape.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType typst ++once lua require("packer.load")({'typst.vim'}, { ft = "typst" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/nils/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]], true)
+vim.cmd [[source /home/nils/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]]
+time([[Sourcing ftdetect script at: /home/nils/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

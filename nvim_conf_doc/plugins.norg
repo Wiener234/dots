@@ -72,6 +72,7 @@ tangle: ~/.config/nvim/lua/plug.lua
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
   use { '3rd/image.nvim' }
   use { 'kaarmu/typst.vim', ft = {'typst'} }
+  use { 'altermo/nxwm' }
   @end
 
 * Themes

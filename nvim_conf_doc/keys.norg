@@ -20,11 +20,11 @@ local map = vim.api.nvim_set_keymap
   map('n', ';', '<C-w>', {})				-- move between windows
   map('t', 'jk', [[<C-\><C-n>]], {})		-- exit terminal mode
   map('n', 'f', ':FloatermToggle<CR>', {})-- open floaterm
-  map('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
+  map('n', 'm', ':Files<CR>', {})			-- open fzf Files ./
   -- map('n', 'N', ':Files ', {})			-- open fzf Files [user input]
   map('n', '<leader>z', ':Buffers<CR>', {})
   map('n', '<leader>Z', ':GFiles?<CR>', {})
-  map('n', 'N', ':NvimTreeToggle<CR>', {})
+  map('n', 'M', ':NvimTreeToggle<CR>', {})
   @end
   jk 	- Exit insert/visual/terminal mode
   ;  	- Move between show buffers with hjkl
@@ -48,7 +48,7 @@ local map = vim.api.nvim_set_keymap
   vim.api.nvim_create_autocmd({'BufEnter', 'TermEnter'} , {
   	callback = function ()
   		if vim.bo.filetype == 'fzf' then
-  			vim.keymap.set('n', 'n', function ()
+  			vim.keymap.set('n', 'm', function ()
   				vim.api.nvim_command(':q')
   			end, {})
   
@@ -60,7 +60,7 @@ local map = vim.api.nvim_set_keymap
   				vim.api.nvim_command(':q')
   			end, {})
          else
-  			vim.keymap.set('n', 'n', ':Files<CR>', {})			-- open fzf Files ./
+  			vim.keymap.set('n', 'm', ':Files<CR>', {})			-- open fzf Files ./
 			  -- vim.keymap.set('n', 'N', ':Files ', {})			-- open fzf Files [user input]
   			vim.keymap.set('n', '<leader>z', ':Buffers<CR>', {})
   			vim.keymap.set('n', '<leader>Z', ':GFiles?<CR>', {})
