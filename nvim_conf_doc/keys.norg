@@ -15,9 +15,9 @@ local map = vim.api.nvim_set_keymap
 
 * General use
   @code lua
-  -- map('i', 'jk', '<Esc>', {})				-- exit insert mode
-  map('v', 'jk', '<Esc>', {})				-- exit visual mode
-  map('t', 'jk', [[<C-\><C-n>]], {})		-- exit terminal mode
+  map('i', 'gk', '<Esc>', {})				-- exit insert mode
+  map('v', 'gk', '<Esc>', {})				-- exit visual mode
+  map('t', 'gk', [[<C-\><C-n>]], {})		-- exit terminal mode
   map('n', ';', '<C-w>', {})				-- move between windows
   map('n', '<leader>f', ':FloatermToggle<CR>', {})-- open floaterm
   map('n', '<leader>n', ':Files<CR>', {})			-- open fzf Files ./
@@ -26,7 +26,7 @@ local map = vim.api.nvim_set_keymap
   map('n', '<leader>gf', ':GFiles?<CR>', {})
   map('n', '<leader>N', ':NvimTreeToggle<CR>', {})
   @end
-  jk 	- Exit insert/visual/terminal mode
+  gk 	- Exit insert/visual/terminal mode
   ;  	- Move between show buffers with hjkl
   f 	- Open floaterm
   n 	- Open fzf Files

@@ -1,8 +1,8 @@
 local map = vim.api.nvim_set_keymap
 
--- map('i', 'jk', '<Esc>', {})				-- exit insert mode
-map('v', 'jk', '<Esc>', {})				-- exit visual mode
-map('t', 'jk', [[<C-\><C-n>]], {})		-- exit terminal mode
+-- map('i', 'gk', '<Esc>', {})				-- exit insert mode
+map('v', 'gk', '<Esc>', {})				-- exit visual mode
+map('t', 'gk', [[<C-\><C-n>]], {})		-- exit terminal mode
 map('n', ';', '<C-w>', {})				-- move between windows
 map('n', '<leader>f', ':FloatermToggle<CR>', {})-- open floaterm
 map('n', '<leader>n', ':Files<CR>', {})			-- open fzf Files ./
