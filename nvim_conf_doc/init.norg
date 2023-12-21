@@ -22,7 +22,7 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 * Leaders
 
   @code lua
-  vim.g.mapleader = "\\"
+  vim.g.mapleader = " "
   vim.g.maplocalleader = ","
   @end
 

@@ -1,6 +1,8 @@
 local opt = vim.opt
 local cmd = vim.api.nvim_command
 
+opt.timeoutlen = 100
+
 opt.wrap = false
 opt.clipboard = "unnamedplus"
 opt.scrolloff = 999
