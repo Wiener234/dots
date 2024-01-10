@@ -151,3 +151,5 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 #source /usr/share/nvm/init-nvm.sh
 export PATH="$PATH:$HOME/.config/emacs/bin/"
 export EDITOR="nvim"
+export _JAVA_AWT_WM_NONREPARENTING=1
+eval $(keychain --eval --dir $HOME/.config/keychain --quiet --noask --agents gpg,ssh id_rsa ~/.ssh/*) 

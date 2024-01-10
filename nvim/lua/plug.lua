@@ -28,7 +28,8 @@ use { 'hrsh7th/cmp-nvim-lua' }
 use { 'hrsh7th/cmp-buffer' }
 use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
 use { 'voldikss/vim-floaterm' }
-use { 'kylechui/nvim-surround' }
+-- use { 'kylechui/nvim-surround' }
+use { 'echasnovski/mini.surround'}
 use { 'tpope/vim-commentary' }
 use { 'junegunn/fzf' }
 use { 'junegunn/fzf.vim' }

@@ -14,8 +14,13 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
+include /etc/sway/config.d/*
 
+exec_always export _JAVA_AWT_WM_NONREPARENTING=1
+exec /home/nils/.config/sway/portal.sh
+exec swayidle -w before-sleep 'swaylock -i /home/nils/github/background/wiener234/037.png --indicator-radius 75 --effect-blur 5x1'
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
+exec dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
@@ -56,7 +61,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -71,6 +77,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '#272934' -sf  '#f0cae7' -sb '#6b7475' -nf '#d4d4d4'" 
 # A more modern dmenu replacement is rofi:
+# bindsym $mod+d exec --no-startup-id "wofi --show=drun --prompt=Run"
 bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun -display-drun Run"
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -140,7 +147,6 @@ set $ws8 "8:ﭮ"
 set $ws9 "9:阮"
 set $ws10 "10:"
 
-workspace $ws1 output HDMI-0
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -220,7 +226,7 @@ bindsym $mod+r mode "resize"
 #	}
 #}
 
-default_border pixel 0
+default_border pixel 2
 # new_window pixel 0
 focus_follows_mouse  yes
 workspace_auto_back_and_forth no
@@ -234,7 +240,7 @@ bindsym $mod+z [title="MAR-LX1A"] floating enable move position -152 0, resize s
 ## Gaps
 gaps inner 4
 gaps outer 2
-gaps top 29
+# gaps top 29
 # smart_gaps on
 # smart_borders on
 
@@ -254,7 +260,7 @@ client.urgent           $cbg    $cunfo  $ccolor $cindi   $cunfo
 
 
 for_window [class="Spotify"] move to workspace $ws9
-for_window [class="discord"] move to workspace $ws8
+# for_window [class="discord"] move to workspace $ws8
 for_window [class="Yad" title="yad-calendar"] floating enable
 
 ###set monitors
@@ -262,14 +268,24 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 # set $m2 DVI-D-0
 # set $m3 DP-0
 
-workspace $ws8 output $m3
+output eDP-1 scale 1.4
+output DP-4 scale 1
+output DP-4 pos 0 0 res 1920x1080
+output eDP-1 pos 1920 0
+
+output "*" bg /home/nils/github/background/wiener234/037.png fill
+
+# workspace $ws8 output $m3
 # workspace $ws2 output $m3
-workspace $ws9 output $m3
+# workspace $ws9 output $m3
 
 # Startup
-exec_always --no-startup-id "sh /home/nils/fehbg &"
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec discord
+# exec_always --no-startup-id "sh /home/nils/fehbg &"
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/waybar/waybar.sh
+# exec_always --no-startup-id waybar
+
+# exec discord
 
 set $i3lockwall i3lock -i /home/nils/Bilder/Background/wiener234/013.png -t -e
 
@@ -286,28 +302,36 @@ bindsym $mod+shift+s exec flameshot gui
 bindsym $mod+t exec thunderbird
 bindsym $mod+c exec pavucontrol
 bindsym $mod+shift+v exec code
-bindsym $mod+n exec --no-startup-id flash_window
+# bindsym $mod+n exec --no-startup-id flash_window
 bindsym $mod+shift+o exec soffice
-bindsym $mod+shift+d exec discord
+# bindsym $mod+shift+d exec discord
 # bindsym $mod+shift+n exec systemctl --user restart noisetorch
 bindsym $mod+shift+q exec /home/nils/Applications/Logseq-linux-x64-0.8.10_903b9ea0f679ff6acafcd778aea23f4c.AppImage
 
 
 #  exec_always /home/nils/Applications/Nextcloud-3.4.1-x86_64_5cbe3362585cfaace861289d8773450b.AppImage
-exec nextcloud
+exec sleep 5 && nextcloud
 exec_always /usr/bin/dunst
-exec xinput --set-prop "Compx 2.4G Receiver Mouse" 'libinput Accel Profile Enabled' 0, 1
-exec_always picom
+# exec xinput --set-prop "Compx 2.4G Receiver Mouse" 'libinput Accel Profile Enabled' 0, 1
+# exec_always picom
 # exec_always setxkbmap -layout us -variant alt-intl
 exec_always setxkbmap -layout us -variant alt-intl -print |     xkbcomp -I"/etc/xkb" - "$DISPLAY"
-exec_always --no-startup-id flashfocus
+# exec_always --no-startup-id flashfocus
 exec_always --no-startup-id timeshift --check
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec nmcli connection up "Kabelgebundene Verbindung"
 
 
-exec_always xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --mode 1920x1080 --pos 1920x0 --rotate normal
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
 
+
+
+# exec_always xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec export GTK_USE_PORTAL=0
+exec systemctl --user import-environment
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 
 # shutdown / restart / suspend...
@@ -325,5 +349,12 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+seat * xcursor_theme breeze_cursors 24
 
-bindsym $mod+Shift+e exec $HOME/.local/bin/rofi-power-menu
+bindsym $mod+Shift+e exec rofi -show power-menu -modi power-menu:$HOME/.local/bin/rofi-power-menu
+
+bindgesture swipe:4:right workspace prev
+bindgesture swipe:4:left workspace next
+input type:keyboard {
+    xkb_file /home/nils/output.xkb
+}

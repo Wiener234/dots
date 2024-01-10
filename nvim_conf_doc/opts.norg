@@ -12,7 +12,7 @@ tangle: ~/.config/nvim/lua/opts.lua
   local opt = vim.opt
   local cmd = vim.api.nvim_command
 
-  opt.timeoutlen = 200
+  -- opt.timeoutlen = 200
   @end
 
 * Text
@@ -78,6 +78,7 @@ tangle: ~/.config/nvim/lua/opts.lua
 * Neorg
   @code lua
   opt.conceallevel = 2
+  vim.g.table_mode_corner="|"
   @end
   Set conceallevel to 2 so that links are not shown
 

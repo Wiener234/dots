@@ -44,3 +44,5 @@ require('better_escape').setup{
 require('nvim-tree').setup()
 
 require('image').setup()
+
+require('mini.surround').setup()

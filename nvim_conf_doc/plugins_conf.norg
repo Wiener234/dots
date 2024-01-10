@@ -66,3 +66,7 @@ tangle: ~/.config/nvim/lua/plugconf.lua
   @code lua
   require('image').setup()
   @end
+* Mini surround
+  @code lua
+  require('mini.surround').setup()
+  @end

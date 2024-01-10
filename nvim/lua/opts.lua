@@ -1,7 +1,7 @@
 local opt = vim.opt
 local cmd = vim.api.nvim_command
 
-opt.timeoutlen = 200
+-- opt.timeoutlen = 200
 
 opt.wrap = false
 opt.clipboard = "unnamedplus"
@@ -33,6 +33,7 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpt()'
 
 opt.conceallevel = 2
+vim.g.table_mode_corner="|"
 
 opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 opt.shortmess = opt.shortmess + { c = true }
