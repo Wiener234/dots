@@ -46,3 +46,5 @@ require('nvim-tree').setup()
 require('image').setup()
 
 require('mini.surround').setup()
+
+require('sg').setup()

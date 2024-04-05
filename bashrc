@@ -163,10 +163,21 @@ fi
 ## packaging
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 source /usr/share/nvm/init-nvm.sh
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
 export PATH="$PATH:$HOME/.config/emacs/bin/"
+
+export PATH="/home/nils/.local/share/bob/nvim-bin:$PATH"
 
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 
 export PATH="$HOME/.elan/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
+
+export PSPDEV=~/pspdev
+export PATH=$PATH:$PSPDEV/bin
+
+eval "$(zoxide init bash)"

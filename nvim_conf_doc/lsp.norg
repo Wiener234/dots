@@ -4,7 +4,7 @@ description: Lsp config for Neovim
 authors: nils
 categories: 
 created: 2023-09-05
-updated: 2023-10-25T16:08:10+0100
+updated: 2024-02-18T23:11:57+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/lsp.lua
 @end
@@ -18,12 +18,6 @@ tangle: ~/.config/nvim/lua/lsp.lua
   		require('lspconfig')[server_name].setup{}
   	end,
 	  ["jdtls"] = function() end,
-      ["typst_lsp"] = function()
-          require('lspconfig')["typst_lsp"].setup{
-              settings = {
-                  exportPdf = "onType"
-              }
-          }
   }
   @end
   Setup Mason to install Lsp's and set them up
@@ -142,7 +136,7 @@ tangle: ~/.config/nvim/lua/lsp.lua
    @code lua
      -- Installed sources:
      sources = {
-   	  { name = 'luasnip' },
+   	   { name = 'luasnip' },
        { name = 'path' },                              -- file paths
        { name = 'nvim_lsp', keyword_length = 2 },      -- from language server
        { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
@@ -150,6 +144,7 @@ tangle: ~/.config/nvim/lua/lsp.lua
        { name = 'buffer', keyword_length = 2 },        -- source current buffer
        { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
        { name = 'calc'},                               -- source for math calculation
+       { name = 'cody' },
      },
    @end
    Source the shown words from:

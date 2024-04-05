@@ -4,7 +4,7 @@ description: All plugins in Neovim
 authors: nils
 categories: 
 created: 2023-09-06
-updated: 2023-10-25T21:55:55+0100
+updated: 2024-02-21T20:01:35+0100
 version: 0.0.1
 tangle: ~/.config/nvim/lua/plug.lua
 @end
@@ -38,7 +38,7 @@ tangle: ~/.config/nvim/lua/plug.lua
 
 * Plugins
   @code lua
-  use { 'norcalli/nvim-colorizer.lua' }
+  -- use { 'norcalli/nvim-colorizer.lua' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'andweeb/presence.nvim' }
   use { 'williamboman/mason.nvim' }
@@ -53,7 +53,7 @@ tangle: ~/.config/nvim/lua/plug.lua
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'voldikss/vim-floaterm' }
   -- use { 'kylechui/nvim-surround' }
-  use { 'echasnovski/mini.surround'} }
+  use { 'echasnovski/mini.surround'}
   use { 'tpope/vim-commentary' }
   use { 'junegunn/fzf' }
   use { 'junegunn/fzf.vim' }
@@ -74,6 +74,8 @@ tangle: ~/.config/nvim/lua/plug.lua
   use { '3rd/image.nvim' }
   use { 'kaarmu/typst.vim', ft = {'typst'} }
   use { 'altermo/nxwm' }
+  use { 'sourcegraph/sg.nvim', run = 'nvim -l build/init.lua' }
+  use { 'nvim-lua/plenary.nvim' }
   @end
 
 * Themes

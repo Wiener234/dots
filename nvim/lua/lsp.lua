@@ -5,13 +5,6 @@ require('mason-lspconfig').setup_handlers{
 		require('lspconfig')[server_name].setup{}
 	end,
  ["jdtls"] = function() end,
-    ["typst_lsp"] = function()
-        require('lspconfig')["typst_lsp"].setup{
-            settings = {
-                exportPdf = "onType"
-            }
-        }
-end
 }
 
 local sign = function(opts)
@@ -98,7 +91,7 @@ cmp.setup({
 
   -- Installed sources:
   sources = {
-	  { name = 'luasnip' },
+	   { name = 'luasnip' },
     { name = 'path' },                              -- file paths
     { name = 'nvim_lsp', keyword_length = 2 },      -- from language server
     { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
@@ -106,6 +99,7 @@ cmp.setup({
     { name = 'buffer', keyword_length = 2 },        -- source current buffer
     { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
     { name = 'calc'},                               -- source for math calculation
+    { name = 'cody' },
   },
 
  window = {

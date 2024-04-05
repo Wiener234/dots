@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-use { 'norcalli/nvim-colorizer.lua' }
+-- use { 'norcalli/nvim-colorizer.lua' }
 use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 use { 'andweeb/presence.nvim' }
 use { 'williamboman/mason.nvim' }
@@ -50,6 +50,8 @@ use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }}
 use { '3rd/image.nvim' }
 use { 'kaarmu/typst.vim', ft = {'typst'} }
 use { 'altermo/nxwm' }
+use { 'sourcegraph/sg.nvim', run = 'nvim -l build/init.lua' }
+use { 'nvim-lua/plenary.nvim' }
 
 use { 'Mofiqul/dracula.nvim' }
 use { "ellisonleao/gruvbox.nvim" }
